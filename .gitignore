@@ -1,0 +1,7 @@
+.DS_STORE
+Thumbs.db
+/.vagrant/*
+/node_modules
+src/public/*
+src/yarn.lock
+src/public/js/app.js
