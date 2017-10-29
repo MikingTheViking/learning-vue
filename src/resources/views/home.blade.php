@@ -16,6 +16,11 @@
 
                     You are logged in!
                 </div>
+                <div id="app">
+
+                    <notification></notification>
+
+                </div>
             </div>
         </div>
     </div>
