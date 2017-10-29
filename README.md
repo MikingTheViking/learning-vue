@@ -45,3 +45,8 @@ Supervisord is used for client/server process management (managing the NGINX con
 ####postgres
 The postgres folde contains the Dockerfile to configure the postgres docker container and an `init.sql` file to initialize the database.
 
+#Laravel 5.5
+[Laravel](https://laravel.com/) is a very intuitive PHP Framework that will be the back end of this application.
+
+#Vue
+The Front-End Components will be built using [Vue.js](https://vuejs.org/v2/guide/index.html).

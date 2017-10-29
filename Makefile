@@ -7,6 +7,9 @@ new: ## Create and start containers, install dependencies and build assets.
 	@make db_migrate
 	@make db_seed
 
+watch: ## run yarn watch
+	cd src; yarn watch
+
 composer_install: ## Install composer dependencies.
 	@docker exec ${APP_CONTAINER} bash -c "cd /src && composer install --no-interaction"
 
