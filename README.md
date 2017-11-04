@@ -46,7 +46,20 @@ Supervisord is used for client/server process management (managing the NGINX con
 The postgres folde contains the Dockerfile to configure the postgres docker container and an `init.sql` file to initialize the database.
 
 #Laravel 5.5
-[Laravel](https://laravel.com/) is a very intuitive PHP Framework that will be the back end of this application.
+[Laravel](https://laravel.com/) is a very intuitive PHP Framework that will act as the core framework of this application.
 
-#Vue
+#Vue JS
 The Front-End Components will be built using [Vue.js](https://vuejs.org/v2/guide/index.html).
+
+All Vue applications start with a root component. Within that root component can be any number of sub-components.
+
+|Function   |Description
+|---|---|
+|`v-bind:xxxx=yyyy`   | binds the node's xxxx attribute to the data value yyyy, if that value is updated then the node will re-render
+|`v-if="xxxx"`   | only displays the node if the condition is satisfied
+|`v-for="x in xs"`   | for loop
+|`v-on:someEvent="someResponse"`   | attach an action to an event such as click
+|`v-model="someModel"`   | two-way binding between form input and app state
+|`v-model="someModel"`   | two-way binding between form input and app state
+
+

@@ -3,7 +3,7 @@
     <div class="login">
     
         <h1>{{message}}</h1>
-
+        <button v-on:click="reverseMessage">Reverse Message</button>
     </div>
 
 </template>
@@ -15,9 +15,15 @@
         data() {
 
             return {
-
-                message: 'LOGIN'
-
+                data: {
+                    message: 'Holla holla!'
+                },
+                methods: {
+                    reverseMessage: function () {
+                        console.log('reverseMessage!');
+                        this.message = this.message.split('').reverse().join('')
+                    }
+                }
             };
         }
 

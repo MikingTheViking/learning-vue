@@ -16,12 +16,14 @@
 <body>
     <div id="app">
         @include('inclusions.navbar')
+        
+        <example-component></example-component>
 
-        @yield('content')
+
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/learnvue.js') }}"></script>
 
     @include('inclusions.browsersync')
 </body>
