@@ -2,7 +2,7 @@
 ## with Laravel & Docker-Compose
 
 
-#1. Project Configuration
+# 1. Project Configuration
 
 We'll setup this project with Docker containers: a container for the database, and a second container for the server (Ubuntu in this case).
 
@@ -22,13 +22,13 @@ We'll setup this project with Docker containers: a container for the database, a
 |   [LARAVEL + Application SOURCE FILES]
 ```
 
-#####Makefile
+##### Makefile
 The Makefile is used to configure and prepare MAKE commands - rapidly simplifying development, testing, and build processes. It can be used to execute many CLI commands in rapid succession via a simple MAKE command such as `make dev-server`.
 
-#####Dockerfile
+##### Dockerfile
 The root Dockerfile contains the docker configuration commands for the Ubuntu container.
 
-#####docker-compose.yml
+##### docker-compose.yml
 The docker compose file is used to provide configuration details for the various docker containers used in the application (in this case the postgres container and the ubuntu container) with various details like such as:
 
 * port mapping
@@ -37,38 +37,38 @@ The docker compose file is used to provide configuration details for the various
 * Dockerfile to use
 * docker image to use
 
-####config
+#### config
 The config folder contains configurations for both nginx and supervisord.
 
 Supervisord is used for client/server process management (managing the NGINX container such as if it were to die). NGINX is used in the container as a web server.
 
-####postgres
+#### postgres
 The postgres folde contains the Dockerfile to configure the postgres docker container and an `init.sql` file to initialize the database.
 
-#Laravel 5.5
+# Laravel 5.5
 [Laravel](https://laravel.com/) is a very intuitive PHP Framework that will act as the core framework of this application.
 
-#Vue JS
+# Vue JS
 The Front-End Components will be built using [Vue.js](https://vuejs.org/v2/guide/index.html).
 
-##Components
+## Components
 The key to Vue Component Parent <-> Child relationship is [props down, events up](https://vuejs.org/v2/guide/components.html#Composing-Components).
 
 All Vue applications start with a root component. Within that root component can be any number of sub-components.
 
-###Registering Components
+### Registering Components
 
 A component can be registered globally or locally. Once registered a component can be used in an instance's template as a custom element `<my-component></my-component>`.
 
-####Global Registration
+#### Global Registration
 
 * Register a component globally using `Vue.component(tagName, options)`
 
-####Local Registration
+#### Local Registration
 
 A component can be limited in availability within the scope of another instance/component by registering it with the `components` option.
 
-####Component Attributes
+#### Component Attributes
 
 **`data` must be a function returning an object.
 
