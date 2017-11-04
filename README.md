@@ -1,5 +1,5 @@
-#Learning Vue.js
-##with Laravel & Docker-Compose
+# Learning Vue.js
+## with Laravel & Docker-Compose
 
 
 #1. Project Configuration
