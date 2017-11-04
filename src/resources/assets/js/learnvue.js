@@ -16,6 +16,17 @@ require('./bootstrap');
 import Vue from 'vue';
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('category', require('./learnvue-components/Category.vue'));
+
+
+Vue.component('child', {
+
+    //declare the props
+    props: ['myMessage'],
+    //like data, the prop can be used inside templates and is also made available in the vm as this.message
+    template: '<span>{{ myMessage }}</span>'
+
+});
 
 const app = new Vue({
     el: '#app'

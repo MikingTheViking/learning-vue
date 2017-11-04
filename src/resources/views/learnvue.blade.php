@@ -18,8 +18,8 @@
         @include('inclusions.navbar')
         
         <example-component></example-component>
-
-
+        <child my-message="shit"></child>
+        <category></category>
     </div>
 
     <!-- Scripts -->
