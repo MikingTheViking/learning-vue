@@ -17,6 +17,7 @@
                 </div>
             </div>
         </div>
+        <child my-message="woah this is a global child component with a prop 'my-message'"></child>
     </div>
     
 
@@ -30,7 +31,8 @@
 
             return {
 
-                message: 'Hello World'
+                message: 'Hello World',
+                counter: 0
 
             };
         }
@@ -42,6 +44,7 @@
 <style lang="scss">
 
     .category {
+        
         //background: black;
     }
 

@@ -15,7 +15,6 @@ require('./bootstrap');
 
 import Vue from 'vue';
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('category', require('./learnvue-components/Category.vue'));
 
 
