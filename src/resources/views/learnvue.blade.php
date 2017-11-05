@@ -16,7 +16,7 @@
 <body>
     <div id="app">
         @include('inclusions.navbar')
-        <category></category>
+        <category test="something"></category>
     </div>
 
     <!-- Scripts -->
