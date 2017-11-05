@@ -6,9 +6,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-info">
                         <div class="panel-heading">{{ title }} {{this.test}}</div>
-                        <div class="panel-body">
-                            <button v-on:click="counter += 1">{{ counter }}</button>
-                            <p><em>Category Contents (Subcategories)</em></p>
+                        <div class="panel-body category-panel-body">
                             <subcategory></subcategory>
                         </div>
                     </div>
@@ -28,8 +26,7 @@
 
             return {
 
-                title: 'Category Title',
-                counter: 0
+                title: 'Category Title'
 
             };
         },
@@ -37,7 +34,6 @@
             'subcategory': require('./Subcategory.vue')
         },
         props: ['test']
-
     }
 
 </script>
@@ -47,6 +43,10 @@
     .category {
         
         //background: black;
+    }
+
+    .category-panel-body {
+        padding-bottom:0;
     }
 
 </style>
