@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/learnvue', function(){
-    return view('learnvue');
-});
+Route::get('/learnvue', 'LearnVueController@index')->name('learnvue');
 
 Auth::routes();
 

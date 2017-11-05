@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-info">
-                        <div class="panel-heading">{{ title }} {{this.test}}</div>
+                        <div class="panel-heading">{{ this.title }} {{this.test}}</div>
                         <div class="panel-body category-panel-body">
                             <subcategory></subcategory>
                         </div>
@@ -26,14 +26,15 @@
 
             return {
 
-                title: 'Category Title'
+                //title: 'Category Title'
+                title:'boourns'
 
             };
         },
         components: {
             'subcategory': require('./Subcategory.vue')
         },
-        props: ['test']
+        props: ['test', 'title']
     }
 
 </script>

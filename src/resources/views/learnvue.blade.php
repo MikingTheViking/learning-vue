@@ -16,7 +16,7 @@
 <body>
     <div id="app">
         @include('inclusions.navbar')
-        <category test="something"></category>
+        <category test="something passed via the components attribute fuck" title="shitty"></category>
     </div>
 
     <!-- Scripts -->
