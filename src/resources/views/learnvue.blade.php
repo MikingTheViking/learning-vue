@@ -42,7 +42,6 @@ var vm = new Vue({
 });
                     </pre>
                     <basicinstance class="vue-component-root row"></basicinstance>
-                    <instancemethods class="vue-component-root row"></instancemethods>
                 </div>
                 <h3><a href="https://vuejs.org/v2/guide/instance.html#Data-and-Methods">Vue Instance Data and Methods</a></h3>
                 <div class="col-sm-12">
@@ -67,6 +66,20 @@ vm.$watch('a', function (newValue, oldValue) {
 });              
                     </pre>
                     <p><small>Refer to <a href="https://vuejs.org/v2/api/#Instance-Properties">Instance Properties and Methods</a> for the full <code>$</code> API.</small></p>
+                    <p>You can also include watched variables as part of the standalone component. The `watch` properties is an object where each key is a function name corresponding to a variable in the Vue component's data.</p>
+                    <pre>
+                    data: function () {
+                        return {
+                            time: x
+                        }
+                    },
+                    watch: {
+                        time (newval) {
+                            //function content here
+                        }
+                    }
+                    </pre>
+                    <instancemethods class="vue-component-root row"></instancemethods>
                 </div>
                 <h3><a href="https://vuejs.org/v2/guide/instance.html#Instance-Lifecycle-Hooks">Vue Instance Lifecycle Hooks</a></h3>
                 <div class="col-sm-12">
