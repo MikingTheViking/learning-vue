@@ -15,7 +15,10 @@ require('./bootstrap');
 
 import Vue from 'vue';
 
-Vue.component('category', require('./learnvue-components/Category.vue'));
+//Vue.component('category', require('./learnvue-components/Category.vue'));
+Vue.component('basicinstance', require('./learnvue-components/BasicInstance.vue'));
+Vue.component('databindsample', require('./learnvue-components/DataBindSample.vue'));
+Vue.component('instancemethods', require('./learnvue-components/InstanceMethods.vue'));
 
 
 Vue.component('child', {
