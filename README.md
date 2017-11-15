@@ -1,7 +1,7 @@
 # Learning Vue.js
 ## with Laravel & Docker-Compose
 
-###Relevant Subdocumentation
+### Relevant Subdocumentation
 * [Markdown](documents/markdown.md)
 * [Docker & Docker-Composer](documents/docker-docker-composer.md)
 * [Vue](documents/vue.md)
@@ -51,3 +51,23 @@ Supervisord is used for client/server process management (managing the NGINX con
 The postgres folde contains the Dockerfile to configure the postgres docker container and an `init.sql` file to initialize the database.
 
 
+##Setting Up the Project
+
+Clone the project from the repo.
+
+### Initial Building and Installations
+
+If you are freshly cloning this repo locally you'll need to complete several steps to get it up and running.
+
+1. In the project root (`Makefile` location)
+  * run `make build` to create the containers (postgres and ubuntu)
+  * run `make up` to start up the containers
+  * run `make storage_link` to create a link from the storage to the public directory
+  * ....run `make halt` to stop the containers
+2. In `src/`
+  * run `yarn` to install all node dependencies
+
+### For Development
+
+* run `yarn dev` to transpile a development build of the source code
+* run `yarn watch` to transpile a development build of the source code, and watch the files for changes with live reload
