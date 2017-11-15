@@ -106,29 +106,46 @@ vm.$watch('a', function (newValue, oldValue) {
                         </ol>
                     </div>
                     <div class="col-xs-6">
-                        <img class="img-responsive" src="/images/vue-lifecycle.png" />
+                        <div class="thumbnail">
+                            <img class="img-responsive" src="/images/vue-lifecycle.png" />
+                            <div class="caption">
+                                <h3>Lifecycle Diagram</h3>
+                                <p>The lifecycle of a Vue component is shown top-to-bottom in the diagram above.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
             <section name="Template Syntax">
                 <h2><a href="https://vuejs.org/v2/guide/syntax.html">Template Syntax</a></h2>
                 <div class="col-sm-12">
-                    <p>Vue.js uses HTML-based template syntax to declaratively bind the rendered DOM to the underlying Vue instance data. All Vue.js template are valid HTML that can be parsed by browsers and HTLM parsers.</p>
+                    <p>Vue.js uses HTML-based template syntax to declaratively bind the rendered DOM to the underlying Vue instance data. All Vue.js templates are valid HTML that can be parsed by browsers and HTML parsers.</p>
                     <div class="alert alert-info" role="alert">
                         <p><b>Interesting!</b></p>
                         <p>Vue compiles the templates into the Virtual DOM render functions. Using the reactivity system, Vue can determine the minimal number of components to re-render and apply the minimal amount of DOM manipulations during state changes.</p>
                     </div>
                 </div>
                 <div class="col-sm-12">
+                    
                     <h3><a href="https://vuejs.org/v2/guide/syntax.html#Interpolations">Interpolations</a></h3>
-                    <p>Interpolations are comprised of data binding (<code>{<span style="width:0px"> </span>{ someVarOrLogic }<span style="width:0px"> </span>}</code>) and Vue directives (<code>&lt;div v-html="rawHTML"&gt;&lt;/div&gt;</code>).</p>
+                    
+                    <p>Interpolations are comprised of data binding using <em>Mustache syntax</em> (<code>{<span style="width:0px"> </span>{ someVarOrLogic }<span style="width:0px"> </span>}</code>) and Vue directives (<code>&lt;div v-html="rawHTML"&gt;&lt;/div&gt;</code>).</p>
+
                     <h4>Text</h4>
+
+                    <p>The most basic form of data binding is a text interpolation with the <em>Mustache Syntax</em>. The mustach tag will be replaced with the value of the property used in the mustache.</p>
+
+
+
+
                 </div>
             </section>
         </div>
         
         
     </div>
+
+    @{{ something }}
 
     <!-- Scripts -->
     <script src="{{ asset('js/learnvue.js') }}"></script>

@@ -3,7 +3,6 @@
     <div>
         <div class="col-sm-12">
             <p>This Vue component demonstrates event handling (click), model binding and data watching. You can: </p>
-            <hr />
             <ul>
                 <li>Update the displayed time to the current time, manually.</li>
                 <li>Toggle an interval to update the time on/off</li>
