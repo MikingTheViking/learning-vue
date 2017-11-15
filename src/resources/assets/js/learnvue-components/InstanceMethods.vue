@@ -10,7 +10,7 @@
                 <li>Specify the frequency the time should be updated</li>
             </ul>
         </div>
-        <div class="col-sm-4 col-sm-offset-1">
+        <div class="col-sm-6">
             <div class="form-group">
                 <button class="btn btn-default" v-on:click="updateTime">Update time manually</button>
             </div>
@@ -26,7 +26,7 @@
                 </div><!-- /input-group -->
             </div>
         </div>
-        <div class="col-sm-6 col-sm-offset-1">
+        <div class="col-sm-5 col-sm-offset-1">
             <div class="panel">
                 <div class="panel-body">
                     <p>The time is: {{time}} </p>
@@ -105,9 +105,5 @@
 
 <style lang="scss">
 
-    .counter {
-        
-        background: black;
-    }
 
 </style>
