@@ -12,3 +12,5 @@ src/node_modules/
 src/vendor/
 
 src/public/mix-manifest\.json
+
+src/public/css/
