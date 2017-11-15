@@ -21,3 +21,7 @@ src/public/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.wo
 src/public/js/app.js
 src/public/js/learnvue.js
 src/public/js/login.js
+
+src/node_modules/
+
+src/vendor/
