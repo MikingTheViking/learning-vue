@@ -66,7 +66,7 @@ vm.$watch('a', function (newValue, oldValue) {
 });              
                     </pre>
                     <p><small>Refer to <a href="https://vuejs.org/v2/api/#Instance-Properties">Instance Properties and Methods</a> for the full <code>$</code> API.</small></p>
-                    <p>You can also include watched variables as part of the standalone component. The `watch` properties is an object where each key is a function name corresponding to a variable in the Vue component's data.</p>
+                    <p>You can also include watched variables as part of the standalone component. The <code>watch</code> properties is an object where each key is a function name corresponding to a variable in the Vue component's data.</p>
                     <pre>
                     data: function () {
                         return {
@@ -91,24 +91,22 @@ vm.$watch('a', function (newValue, oldValue) {
                         <li>update the DOM when data changes</li>
                     </ul>
                 </div>
-                <div class="jumbotron">
-                    <div class="container vertical-middle-container">
-                        <div class="col-xs-6">
-                            <p>During these steps it runs functions called <b>lifecycle hooks</b> allowing custom code to be executed at the desired stage.</p>
-                            <ol>
-                                <li>beforeCreate</li>
-                                <li>created</li>
-                                <li>beforeMount</li>
-                                <li>mounted</li>
-                                <li>beforeUpdate (repeated cycle)</li>
-                                <li>update (repeated cycle)</li>
-                                <li>beforeDestroy</li>
-                                <li>destroyed</li>
-                            </ol>
-                        </div>
-                        <div class="col-xs-6">
-                            <img class="img-responsive" src="/images/vue-lifecycle.png" />
-                        </div>
+                <div class="container vertical-middle-container">
+                    <div class="col-xs-6">
+                        <p>During these steps it runs functions called <b>lifecycle hooks</b> allowing custom code to be executed at the desired stage.</p>
+                        <ol>
+                            <li>beforeCreate</li>
+                            <li>created</li>
+                            <li>beforeMount</li>
+                            <li>mounted</li>
+                            <li>beforeUpdate (repeated cycle)</li>
+                            <li>update (repeated cycle)</li>
+                            <li>beforeDestroy</li>
+                            <li>destroyed</li>
+                        </ol>
+                    </div>
+                    <div class="col-xs-6">
+                        <img class="img-responsive" src="/images/vue-lifecycle.png" />
                     </div>
                 </div>
             </section>
