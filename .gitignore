@@ -1,23 +1,8 @@
 .DS_STORE
 Thumbs.db
 /.vagrant/*
-/node_modules
-./src/public/*
 ./src/yarn.lock
-./src/public/
-src/yarn.lock
-src/public/.htaccess
-src/public/favicon.ico
-src/public/index.php
-src/public/mix-manifest.json
-src/public/robots.txt
-src/public/web.config
-src/public/css/app.css
-src/public/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.eot
-src/public/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.svg
-src/public/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.ttf
-src/public/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.woff
-src/public/fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.woff2
+
 src/public/js/app.js
 src/public/js/learnvue.js
 src/public/js/login.js
@@ -25,3 +10,5 @@ src/public/js/login.js
 src/node_modules/
 
 src/vendor/
+
+src/public/mix-manifest\.json
