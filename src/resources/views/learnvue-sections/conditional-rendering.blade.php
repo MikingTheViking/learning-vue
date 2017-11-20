@@ -82,5 +82,26 @@
     <div>
         <conditional-rendering-key-sample class="vue-component-root row" />
     </div>
-    
+
+    <h3><a href="https://vuejs.org/v2/guide/conditional.html#v-show"><code>v-if</code></a></h3>
+
+    <p><code>v-show</code> is another option to conditionall display an element, the usage is mostly the same as with <code>v-if</code>.</p>
+
+    <p><code>&lt;h1 v-show="ok"&gt;Hello!&lt;/h1&gt;</code></p>
+
+    <p>The difference is that an element with <code>v-show</code> will always be rendered and remain in the DOM; <code>v-show</code> only toggles the <code>display</code> CSS property of the element.</p>
+
+    <h3><a href="https://vuejs.org/v2/guide/conditional.html#v-if-vs-v-show"><code>v-if</code> vs <code>v-show</code></a></h3>
+
+    <p><code>v-if</code> performs "real" conditional rendering because it ensures that event listeners, and child components inside the conditional blocks are properly destroyed and re-created during toggles. It is also <strong>lazy</strong>: if the conditional is false on intial render, it will not do anything until the condition becomes true for the first time.</p>
+
+    <p>In comparison, <code>v-show</code> is much simpler as the element is always rendered regardless of initial condition, with CSS-based toggling.</p>
+
+    <p><code>v-if</code> has higher toggle costs while <code>v-show</code> has higher initial render costs. The preference is to use <code>v-show</code> if you need to toggle often, then <code>v-if</code> if the condition is unliklely to change at runtime.</p>
+
+    <h3><a href="https://vuejs.org/v2/guide/conditional.html#v-if-with-v-for"><code>v-if</code> with <code>v-for</code></a></h3>
+
+    <p>When used together, <code>v-for</code> has a higher priority than <code>v-if</code>. See the next section for further notes on this.</p>
+
+
 </section>
