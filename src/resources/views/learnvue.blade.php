@@ -27,6 +27,7 @@
             @include('learnvue-sections.template-syntax')
             @include('learnvue-sections.computed-properties-and-watchers')
             @include('learnvue-sections.class-and-style-bindings')
+            @include('learnvue-sections.conditional-rendering')
         </div>
         
         
