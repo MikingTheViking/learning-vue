@@ -1,11 +1,13 @@
 <template>
 
-    <p>This is a basic Vue component. No interactivity.</p>
+    <p>This is a basic Vue component. No interactivity. <code v-html="basicplaceholder"></code></p>
     
-
+    
 </template>
 
 <script>
+
+    var placeholder = 'something';
 
     export default {
 
@@ -13,9 +15,8 @@
 
             return {
 
-                //title: 'Category Title'
-                title:'boourns'
-
+                title:'Basic Instance',
+                basicplaceholder: '{{ placeholder }}'
             };
         }
     }
