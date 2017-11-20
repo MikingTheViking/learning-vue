@@ -2,10 +2,12 @@
 
     <p>This is a basic Vue component. No interactivity.</p>
     
-
+    
 </template>
 
 <script>
+
+    var placeholder = 'something';
 
     export default {
 
@@ -13,9 +15,7 @@
 
             return {
 
-                //title: 'Category Title'
-                title:'boourns'
-
+                title:'Basic Instance'
             };
         }
     }

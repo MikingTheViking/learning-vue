@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 
 Route::get('/learnvue', 'LearnVueController@index')->name('learnvue');
+Route::get('/testapi', function () {
+    return date("l jS \of F Y h:i:s A");
+});
 
 Auth::routes();
 

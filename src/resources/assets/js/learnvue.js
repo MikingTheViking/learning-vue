@@ -20,6 +20,30 @@ Vue.component('basicinstance', require('./learnvue-components/BasicInstance.vue'
 Vue.component('databindsample', require('./learnvue-components/DataBindSample.vue'));
 Vue.component('instancemethods', require('./learnvue-components/InstanceMethods.vue'));
 
+//interpolations
+Vue.component('text-interpolation', require('./learnvue-components/Interpolations/Text.vue'));
+Vue.component('raw-html-interpolation', require('./learnvue-components/Interpolations/RawHTML.vue'));
+Vue.component('attributes-interpolation', require('./learnvue-components/Interpolations/Attributes.vue'));
+Vue.component('javascript-expressions-interpolation', require('./learnvue-components/Interpolations/JavaScriptExpressions.vue'));
+
+//directives
+Vue.component('directive-sample', require('./learnvue-components/Directives/DirectiveSample.vue'));
+Vue.component('arguments-directive', require('./learnvue-components/Directives/Arguments.vue'));
+Vue.component('modifiers-directive', require('./learnvue-components/Directives/Modifiers.vue'));
+Vue.component('shorthand-directive', require('./learnvue-components/Directives/Shorthands.vue'));
+
+//computed properties and watchers
+Vue.component('computed-property-sample', require('./learnvue-components/Computed-Properties/ComputedPropertySample.vue'));
+Vue.component('complex-watch', require('./learnvue-components/Computed-Properties/ComplexWatch.vue'));
+
+//class and style bindings
+Vue.component('object-syntax-sample', require('./learnvue-components/Class-And-Style-Bindings/ObjectSyntax.vue'));
+Vue.component('array-syntax-sample', require('./learnvue-components/Class-And-Style-Bindings/ArraySyntax.vue'));
+
+//conditional rendering
+Vue.component('conditional-rendering-sample', require('./learnvue-components/Conditional-Rendering/ReusableElementSample.vue'));
+Vue.component('conditional-rendering-key-sample', require('./learnvue-components/Conditional-Rendering/ReusableElementsKey.vue'));
+
 
 Vue.component('child', {
 
