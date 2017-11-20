@@ -32,6 +32,10 @@ Vue.component('arguments-directive', require('./learnvue-components/Directives/A
 Vue.component('modifiers-directive', require('./learnvue-components/Directives/Modifiers.vue'));
 Vue.component('shorthand-directive', require('./learnvue-components/Directives/Shorthands.vue'));
 
+//computed properties and watchers
+Vue.component('computed-property-sample', require('./learnvue-components/Computed-Properties/ComputedPropertySample.vue'));
+Vue.component('complex-watch', require('./learnvue-components/Computed-Properties/ComplexWatch.vue'));
+
 
 
 Vue.component('child', {
