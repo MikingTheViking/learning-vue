@@ -22,6 +22,9 @@
 
             };
         },
+        created: function () {
+            this.getTime();
+        },
         watch: {
             dateformat: function (newformat) {
                 this.dateformat = newformat;

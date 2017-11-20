@@ -17,7 +17,7 @@
     <div id="app">
         @include('inclusions.navbar')
         <div class="container-fluid">
-        
+
             <div class="page-header">
                 <h1>Vue.js <small>A learning exercise with the Viking</small></h1>
             </div>
@@ -26,7 +26,7 @@
             @include('learnvue-sections.vue-instance')
             @include('learnvue-sections.template-syntax')
             @include('learnvue-sections.computed-properties-and-watchers')
-            
+            @include('learnvue-sections.class-and-style-bindings')
         </div>
         
         

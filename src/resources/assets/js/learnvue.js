@@ -36,6 +36,9 @@ Vue.component('shorthand-directive', require('./learnvue-components/Directives/S
 Vue.component('computed-property-sample', require('./learnvue-components/Computed-Properties/ComputedPropertySample.vue'));
 Vue.component('complex-watch', require('./learnvue-components/Computed-Properties/ComplexWatch.vue'));
 
+//class and style bindings
+Vue.component('object-syntax-sample', require('./learnvue-components/Class-And-Style-Bindings/ObjectSyntax.vue'));
+Vue.component('array-syntax-sample', require('./learnvue-components/Class-And-Style-Bindings/ArraySyntax.vue'));
 
 
 Vue.component('child', {

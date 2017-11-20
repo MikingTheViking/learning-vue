@@ -42,7 +42,7 @@ computed: {
 </pre>
     <p>In the example above, calling <code>vm.fullName = "New Name"</code> the setter wil be invoked and <code>vm.firstName</code> and <code>vm.lastName</code> will be updated.</p>
 
-    <h4><a href="https://vuejs.org/v2/guide/computed.html#Watchers">Watchers</a></h4>
+    <h3><a href="https://vuejs.org/v2/guide/computed.html#Watchers">Watchers</a></h3>
 
     <p><code>watch</code> is best used for asynchronous or expensive operations in response to changed data.</p>
 
