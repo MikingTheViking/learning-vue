@@ -1,6 +1,6 @@
 <template>
 
-    <p>This is a basic Vue component. No interactivity. <code v-html="basicplaceholder"></code></p>
+    <p>This is a basic Vue component. No interactivity.</p>
     
     
 </template>
@@ -15,8 +15,7 @@
 
             return {
 
-                title:'Basic Instance',
-                basicplaceholder: '{{ placeholder }}'
+                title:'Basic Instance'
             };
         }
     }

@@ -20,6 +20,10 @@ Vue.component('basicinstance', require('./learnvue-components/BasicInstance.vue'
 Vue.component('databindsample', require('./learnvue-components/DataBindSample.vue'));
 Vue.component('instancemethods', require('./learnvue-components/InstanceMethods.vue'));
 
+Vue.component('text-interpolation', require('./learnvue-components/Interpolations/Text.vue'));
+Vue.component('raw-html-interpolation', require('./learnvue-components/Interpolations/RawHTML.vue'));
+Vue.component('attributes-interpolation', require('./learnvue-components/Interpolations/Attributes.vue'));
+
 
 Vue.component('child', {
 

@@ -132,10 +132,19 @@ vm.$watch('a', function (newValue, oldValue) {
                     <p>Interpolations are comprised of data binding using <em>Mustache syntax</em> (<code>{<span style="width:0px"> </span>{ someVarOrLogic }<span style="width:0px"> </span>}</code>) and Vue directives (<code>&lt;div v-html="rawHTML"&gt;&lt;/div&gt;</code>).</p>
 
                     <h4>Text</h4>
+                    <div>
+                        <text-interpolation class="vue-component-root row" />
+                    </div>
 
-                    <p>The most basic form of data binding is a text interpolation with the <em>Mustache Syntax</em>. The mustach tag will be replaced with the value of the property used in the mustache.</p>
+                    <h4>Raw (Unescaped) HTML</h4>
+                    <div>
+                        <raw-html-interpolation class="vue-component-root row" />
+                    </div>
 
-
+                    <h4>Attributes</h4>
+                    <div>
+                        <attributes-interpolation class="vue-component-root row" />
+                    </div>
 
 
                 </div>
@@ -144,8 +153,6 @@ vm.$watch('a', function (newValue, oldValue) {
         
         
     </div>
-
-    @{{ something }}
 
     <!-- Scripts -->
     <script src="{{ asset('js/learnvue.js') }}"></script>
