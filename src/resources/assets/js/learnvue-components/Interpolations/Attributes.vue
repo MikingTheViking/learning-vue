@@ -19,7 +19,7 @@
 
             return {
 
-                title: 'Raw HTML Interpolation',
+                title: 'Attributes Interpolation',
                 samplecode: '<code>&lt;div v-bind:id="dynamicId"&gt;&lt;/div&gt;</code>',
                 isDisabled: true,
                 boundCode: '&lt;button v-bind:disabled="isDisabled"&gt;'

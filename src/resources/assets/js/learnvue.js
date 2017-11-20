@@ -23,6 +23,7 @@ Vue.component('instancemethods', require('./learnvue-components/InstanceMethods.
 Vue.component('text-interpolation', require('./learnvue-components/Interpolations/Text.vue'));
 Vue.component('raw-html-interpolation', require('./learnvue-components/Interpolations/RawHTML.vue'));
 Vue.component('attributes-interpolation', require('./learnvue-components/Interpolations/Attributes.vue'));
+Vue.component('javascript-expressions-interpolation', require('./learnvue-components/Interpolations/JavaScriptExpressions.vue'));
 
 
 Vue.component('child', {

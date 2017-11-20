@@ -146,6 +146,11 @@ vm.$watch('a', function (newValue, oldValue) {
                         <attributes-interpolation class="vue-component-root row" />
                     </div>
 
+                    <h4>JavaScript Expressions</h4>
+                    <div>
+                    <javascript-expressions-interpolation class="vue-component-root row" />
+                    </div>
+
 
                 </div>
             </section>
