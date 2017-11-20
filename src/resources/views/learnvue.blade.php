@@ -28,6 +28,7 @@
             @include('learnvue-sections.computed-properties-and-watchers')
             @include('learnvue-sections.class-and-style-bindings')
             @include('learnvue-sections.conditional-rendering')
+            @include('learnvue-sections.list-rendering')
         </div>
         
         

@@ -44,6 +44,11 @@ Vue.component('array-syntax-sample', require('./learnvue-components/Class-And-St
 Vue.component('conditional-rendering-sample', require('./learnvue-components/Conditional-Rendering/ReusableElementSample.vue'));
 Vue.component('conditional-rendering-key-sample', require('./learnvue-components/Conditional-Rendering/ReusableElementsKey.vue'));
 
+//list rendering
+Vue.component('for-basic-sample', require('./learnvue-components/List-Rendering/ForBasicExample.vue'));
+Vue.component('for-basic-with-index-sample', require('./learnvue-components/List-Rendering/ForBasicWithIndexExample.vue'));
+Vue.component('for-object-value-sample', require('./learnvue-components/List-Rendering/ObjectValueExample.vue'));
+
 
 Vue.component('child', {
 
