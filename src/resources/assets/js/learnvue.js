@@ -12,7 +12,6 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-
 import Vue from 'vue';
 
 //Vue.component('category', require('./learnvue-components/Category.vue'));
@@ -50,6 +49,7 @@ Vue.component('for-basic-with-index-sample', require('./learnvue-components/List
 Vue.component('for-object-value-sample', require('./learnvue-components/List-Rendering/ObjectValueExample.vue'));
 Vue.component('for-object-key-value-sample', require('./learnvue-components/List-Rendering/ObjectKeyValueExample.vue'));
 Vue.component('for-object-index-key-value-sample', require('./learnvue-components/List-Rendering/ObjectKeyValueIndexExample.vue'));
+Vue.component('simple-todo-list', require('./learnvue-components/List-Rendering/SimpleTodoList.vue'));
 
 
 Vue.component('child', {
