@@ -57,6 +57,12 @@ Vue.component('simple-on-event', require('./learnvue-components/Event-Handling/S
 Vue.component('simple-on-event-method', require('./learnvue-components/Event-Handling/SimpleOnEventMethod.vue'));
 Vue.component('simple-inline', require('./learnvue-components/Event-Handling/SimpleInline.vue'));
 
+//Form Input Binding
+Vue.component('simple-text-binding', require('./learnvue-components/Form-Input-Bindings/TextModel.vue'));
+Vue.component('simple-textarea-binding', require('./learnvue-components/Form-Input-Bindings/TextareaModel.vue'));
+Vue.component('simple-checkbox-single-binding', require('./learnvue-components/Form-Input-Bindings/CheckboxSingle.vue'));
+Vue.component('simple-checkbox-multiple-binding', require('./learnvue-components/Form-Input-Bindings/CheckboxMultiple.vue'));
+
 
 
 Vue.component('child', {
