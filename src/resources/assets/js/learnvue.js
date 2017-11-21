@@ -48,6 +48,8 @@ Vue.component('conditional-rendering-key-sample', require('./learnvue-components
 Vue.component('for-basic-sample', require('./learnvue-components/List-Rendering/ForBasicExample.vue'));
 Vue.component('for-basic-with-index-sample', require('./learnvue-components/List-Rendering/ForBasicWithIndexExample.vue'));
 Vue.component('for-object-value-sample', require('./learnvue-components/List-Rendering/ObjectValueExample.vue'));
+Vue.component('for-object-key-value-sample', require('./learnvue-components/List-Rendering/ObjectKeyValueExample.vue'));
+Vue.component('for-object-index-key-value-sample', require('./learnvue-components/List-Rendering/ObjectKeyValueIndexExample.vue'));
 
 
 Vue.component('child', {

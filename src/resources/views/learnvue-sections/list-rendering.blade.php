@@ -67,6 +67,15 @@ data: {
 
     <p>A second argument can be provided for the key:</p>
 
+
+    <div>
+        <for-object-key-value-sample class="vue-component-root row" />
+    </div>
     
+    <p>A third argument can be provided  for the index:</p>
+
+    <div>
+        <for-object-index-key-value-sample class="vue-component-root row" />
+    </div>
 
 </section>
