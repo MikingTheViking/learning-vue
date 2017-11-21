@@ -52,6 +52,13 @@ Vue.component('for-object-index-key-value-sample', require('./learnvue-component
 Vue.component('simple-todo-list', require('./learnvue-components/List-Rendering/SimpleTodoList.vue'));
 
 
+//Event Handling
+Vue.component('simple-on-event', require('./learnvue-components/Event-Handling/SimpleOnEvent.vue'));
+Vue.component('simple-on-event-method', require('./learnvue-components/Event-Handling/SimpleOnEventMethod.vue'));
+Vue.component('simple-inline', require('./learnvue-components/Event-Handling/SimpleInline.vue'));
+
+
+
 Vue.component('child', {
 
     //declare the props
