@@ -275,6 +275,68 @@ computed: {
 
     <p><strong>Note:</strong> <code>$on</code> cannot be used to listen to event emitted by children, for this use <code>v-on</code> directly in the template:</p>
 
-    
+
+    <div>
+        <event-handling class="vue-component-root row" />
+    </div>
+
+
+    <h4><a href="https://vuejs.org/v2/guide/components.html#Binding-Native-Events-to-Components">Binding Native Events to Components</a></h4>
+
+    <p>When listening for a native event on the root elemtn of a component use the <code>.native</code> modifier for <code>v-on</code>:</p>
+
+    <pre>&lt;my-component v-on:click.native="doTheThing" /&gt;</pre>
+
+    <h4><a href="https://vuejs.org/v2/guide/components.html#sync-Modifier"><code>.sync</code> Modifier</a></h4>
+
+    <p>Some scenarios require "two-way binding" for a prop, this is achieved using <code>.sync</code>. When a child component mutates a prop that has <code>.sync</code> the value change will be reflected in the parent. <code>.sync</code> is syntax sugar that automaticall expands into an additional <code>v-on</code> listener.</p>
+
+    <pre>&lt;comp :foo.sync="bar" /&gt;</pre>
+
+    <p>is expanded by Vue into:</p>
+
+    <pre>&lt;comp :foo="bar" @update:foo="val => bar = val" /&gt;</pre>
+
+    <p>For the child component to update <code>foo</code>'s value it needs to explicitly emit an event instead of mutating the prop:</p>
+
+    <pre>this.$emit('update:foo', newValue)</pre>
+
+    <h4><a href="https://vuejs.org/v2/guide/components.html#sync-Modifier">Form Input Components using Custom Events</a></h4>
+
+    <p>Custom events can also be used to create custom inputs that work with <code>v-model</code>.</p>
+
+    <pre>&lt;input v-model="something"&gt;</pre>
+
+    <p>is syntactic sugar for:</p>
+
+    <pre>&lt;input
+    v-bind:value="something"
+    v-on:input="something = $event.target.value"&gt;</pre>
+
+    <p>When used with a component it is simplified to:</p>
+
+    <pre>&lt;custom-input
+    :value="something"
+    @input="value => { something = value }"&gt;
+&lt;/custom-input&gt;</pre>
+
+    <p>For a component to work with <code>v-model</code> it should:</p>
+
+    <ul>
+        <li>accept a <code>value</code> prop</li>
+        <li>emit an <code>input</code> event with a new value</li>
+    </ul>
+
+    <div>
+        <currency-input-parent class="vue-component-root row" />
+    </div>
+
+    <p>A more complete example is below:</p>
+
+    <div>
+        <currency-input-model-parent class="vue-component-root row" />
+    </div>
+
+
 
 </section>
