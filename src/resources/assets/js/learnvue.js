@@ -70,7 +70,8 @@ Vue.component('lazy-modifier', require('./learnvue-components/Form-Input-Binding
 
 
 //components
-
+Vue.component('prop-simple', require('./learnvue-components/Components/ComponentProps.vue'));
+Vue.component('dynamic-props', require('./learnvue-components/Components/DynamicProps.vue'));
 
 Vue.component('child', {
 
