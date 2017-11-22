@@ -62,7 +62,14 @@ Vue.component('simple-text-binding', require('./learnvue-components/Form-Input-B
 Vue.component('simple-textarea-binding', require('./learnvue-components/Form-Input-Bindings/TextareaModel.vue'));
 Vue.component('simple-checkbox-single-binding', require('./learnvue-components/Form-Input-Bindings/CheckboxSingle.vue'));
 Vue.component('simple-checkbox-multiple-binding', require('./learnvue-components/Form-Input-Bindings/CheckboxMultiple.vue'));
+Vue.component('radio-binding', require('./learnvue-components/Form-Input-Bindings/RadioModel.vue'));
+Vue.component('select-binding', require('./learnvue-components/Form-Input-Bindings/SelectModel.vue'));
+Vue.component('checkbox-value-binding', require('./learnvue-components/Form-Input-Bindings/CheckboxValueBinding.vue'));
+Vue.component('select-options-binding', require('./learnvue-components/Form-Input-Bindings/SelectOptionsBinding.vue'));
+Vue.component('lazy-modifier', require('./learnvue-components/Form-Input-Bindings/LazyModifier.vue'));
 
+
+//components
 
 
 Vue.component('child', {

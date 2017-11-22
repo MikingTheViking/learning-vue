@@ -31,6 +31,7 @@
             @include('learnvue-sections.list-rendering')
             @include('learnvue-sections.event-handling')
             @include('learnvue-sections.form-input-bindings')
+            @include('learnvue-sections.components')
 
         </div>
         
