@@ -16,7 +16,13 @@
             label="Discount" 
             v-model="discount"
         ></currency-input>
-        
+        <ul>
+            <li>Price: {{ price }}</li>
+            <li>Shipping: {{ shipping }}</li>
+            <li>Handling: {{ handling }}</li>
+            <li>Discount: {{ discount }}</li>
+
+        </ul>
         <p>Total: ${{ total }}</p>
     </div>
 </template>

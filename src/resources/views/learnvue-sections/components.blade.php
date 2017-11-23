@@ -337,6 +337,530 @@ computed: {
         <currency-input-model-parent class="vue-component-root row" />
     </div>
 
+    <h4><a href="https://vuejs.org/v2/guide/components.html#Customizing-Component-v-model">Customizing Component <code>v-model</code></a></h4>
 
+    <p>The default for <code>v-model</code> on a component uses <code>value</code> as the prop and <code>input</code> as the event, but some input types such as checkboxes and radio buttons may use the <code>value</code> prop for a different purpose. The <code>model</code> option can avoid the conflict:</p>
+
+    <pre>....
+model: {
+    propr: 'checked',
+    event: 'change'
+},
+props: {
+    checked: Boolean,
+    //this alows using the 'value' prop for a different purpose
+    value: String   
+}</pre>
+
+    <pre>&lt;my-checkbox v-model="foo" value="some value" /&gt;</pre>
+
+<p>The above is equivalent to:</p>
+
+<pre>&lt;my-checkbox
+    :checked="foo"
+    @change="val => { foo = val }"
+    value="some value" /&gt;</pre>
+
+    <p><strong>Note:</strong> the <code>checked</code> property must be explicitly declared.</p>
+
+    <h4><a href="https://vuejs.org/v2/guide/components.html#Non-Parent-Child-Communication">Non Parent-Child Communication</a></h4>
+
+    <p>When two components need to communicate with eachother, but are not in a parent/child relationship, an empty Vue instance can serve as a central bus.</p>
+
+    <pre>var bus = new Vue();</pre>
+
+    <pre>//in component A's method
+bus.$emit('id-selected', 1)</pre>
+
+    <pre>//in component B's created hook
+bus.$on('id-selected', function (id) {
+    //...
+})</pre>
+
+    <p><strong>Note:</strong> in more complex cases, consider employing a dedicated state-management pattern (topics covered later).</p>
+
+    <h3><a href="https://vuejs.org/v2/guide/components.html#Content-Distribution-with-Slots">Content Distribution with Slots</a></h3>
+
+    <p>It is desited to compose components like this:</p>
+
+    <pre>&lt;app&gt;
+    &lt;app-header /&gt;
+    &lt;app-footer /&gt;
+&lt;/app&gt;</pre>
+
+    <p>The two main things to note are:</p>
+
+    <ol>
+        <li>The <code>&lt;app&gt;</code> component does not know what content it will receive. It is decided by the component using <code>&lt;app&gt;</code></li>
+        <li>The <code>&lt;app&gt;</code> component likely has its own template.</li>
+    </ol>
+
+    <p>For composition to work, the parent "content" needs to be interwoven with the component's own template. This is a process called <strong>content distribution</strong>. Vue.js implementes a content distribution API modeled after the current <em>Web Components spec draft</em> using the special <code>&lt;slot&gt;</code> element to serve as distribution outlets for the original content.</p>
+
+    <h4><a href="https://vuejs.org/v2/guide/components.html#Compilation-Scope">Compilation Scope</a></h4>
+
+    <p>Consider the following template:</p>
+
+    <pre>&lt;child-component&gt;
+    {<span style="width:0px"></span>{ message }}
+&lt;/child-component&gt;</pre>
+
+    <p>The <code>message</code> is bound to the parent's data.</p>
+
+    <blockquote>Everything in the parent template is compiled in parent scope; everything in the child template is compiled in child scope.</blockquote>
+
+    <p>A common mistake is trying to bind a directive to a child property/method in the parent template:</p>
+
+    <pre>&lt;child-coponent v-show="someChildProperty" /&gt;</pre>
+
+    <p>Because the parent template is unaware of the state of a child component, someChildProperty is inaccessible to the parent.</p>
+
+    <p>To bind child-scope directives on a component root node, do so in the child component's own template.</p>
+
+    <pre>&lt;template&gt;
+    &lt;div v-show="someChildProperty"&gt;Child&lt;/div&gt;    
+&lt;/template&gt;
+....
+data: function () {
+    return {
+        someChildProperty: true
+    }
+}</pre>
+
+	<p>Distributed content will be compiled in the parent scope.</p>
+
+	<h4><a href="https://vuejs.org/v2/guide/components.html#Single-Slot">Single Slot</a></h4>
+
+	<p>Parent content is <strong>discarded</strong> unless the chld component template contains at least one <code>&lt;slot&gt;</code> outlet. When there is only one slot with no attributes, the entire conten fragment will be inserted at its position in the DOM, replacing the slot itself.</p>
+
+	<p>Whatever is initially within the <code>&lt;slot&gt;</code> tag is considered <strong>fallback content</strong>. Fallback content is compiled in the child scope and will only be displayed if the hosting element is empty and has no content to be inserted.</p>
+
+	<p>Suppose there is a component <code>my-component</code> with the following template:</p>
+
+	<pre>&lt;div&gt;
+	&lt;h2&gt;I'm the child title&lt;/h2&gt;
+	&lt;slot&gt;
+		This will only be displayed if there is no content to be distributed.
+	&lt;/slot&gt;
+&lt;/div&gt;</pre>
+
+	<p>And a parent that uses the component:</p>
+
+	<pre>&lt;div&gt;
+	&lt;h1&gt;I'm the parent title&lt;/h1&gt;
+	&lt;my-component&gt;
+		&lt;p&gt;This is some original content&lt;/p&gt;
+		&lt;p&gt;This is some more original content&lt;/p&gt;
+	&lt;/my-component&gt;
+&lt;/div&gt;</pre>
+
+	<p>The rendered result will be:</p>
+
+	<pre>&lt;div&gt;
+	&lt;h1&gt;I'm the parent title&lt;/h1&gt;
+	&lt;div&gt;
+		&lt;h2&gt;I'm the child title&lt;/h2&gt;
+		&lt;p&gt;This is some original content&lt;/p&gt;
+		&lt;p&gt;This is some more original content&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+
+	<h4><a href="https://vuejs.org/v2/guide/components.html#Named-Slots">Named Slots</a></h4>
+
+	<p><code>&lt;slot&gt;</code> elements have a special attribute, <code>name</code>, which can be used to further customize how content should be distributed. There can be multiple slots with different names. A named slot will match any element that has a corresponding <code>slot</code> attribute in the content fragment.</p>
+
+	<p>There can still be one unnamed slot, the <strong>default slot</strong> that serves as a catch-all outlet for any unmatched content. If there is not default slot, unmatched content will be discarded.</p>
+
+	<p>Consider an <code>app-layout</code> component with the following template:</p>
+
+	<pre>&lt;div class="container"&gt;
+	&lt;header&gt;
+		&lt;slot name="header"&gt;&lt;/slot&gt;
+	&lt;/header&gt;
+	&lt;main&gt;
+		&lt;slot&gt;&lt;/slot&gt;
+	&lt;/main&gt;
+	&lt;footer&gt;
+		&lt;slot name="footer" &gt;&lt;/slot&gt;
+	&lt;/footer&gt;
+&lt;/div&gt;</pre>
+
+	<p>Parent markup:</p>
+
+	<pre>&lt;app-layout&gt;
+	&lt;h1 slot="header"&gt;Header might be a page title&lt;/h1&gt;
+	
+	&lt;p&gt;A paragraph for the main content.&lt;/p&gt;
+	&lt;p&gt;And another one&lt;/p&gt;
+	
+	&lt;p slot="footer"&gt;Here's some contact info&lt;/p&gt;
+&lt;/app-layout&gt;</pre>
+
+	<p>The rendered result will be:</p>
+
+	<pre>&lt;div class="container"&gt;
+	&lt;header&gt;
+		&lt;h1&gt;Here might be a page title&lt;/h1&gt;
+	&lt;/header&gt;
+	&lt;main&gt;
+		&lt;p&gt;A paragraph for the main content.&lt;/p&gt;
+		&lt;p&gt;And another one.&lt;/p&gt;
+	&lt;/main&gt;
+	&lt;footer&gt;
+		&lt;p&gt;Here's some contact info&lt;/p&gt;
+	&lt;/footer&gt;
+&lt;/div&gt;</pre>
+
+	<p>The content distribution API is a very useful mechanism when designing coonents that are meant to be composed together.</p>
+
+	<h4><a href="https://vuejs.org/v2/guide/components.html#Scoped-Slots">Scoped Slots</a></h4>
+
+	<p>A scoped slot is a special type of slot that functions as a reusable template (than can be passed data to) instead of already-rendered-elements.</p>
+
+	<p>In a child component, pass data into a slot as if you are passing props to a component.</p>
+
+	<pre>&lt;div class="child"&gt;
+	&lt;slot text="hello from child"&gt;&lt;/slot&gt;
+&lt;/div&gt;</pre>
+
+	<p>In the parent, a <code>&lt;template&gt;</code> element with a special attribute <code>slot-scope</code> msut exist, indicating that it is a template for scoped slot. The value of <code>slot-scope</code> will be used as the name of a temporary variable that holds the props object passed from the child:</p>
+
+	<pre>&lt;div class="parent"&gt;
+	&lt;child&gt;
+		&lt;template slot-scope="props"&gt;
+			&lt;span&gt;hello from parent&lt;/span&gt;
+			&lt;span&gt;{<span style="width:0px"></span>{ props.text }}&lt;/span&gt;
+		&lt;/template&gt;
+	&lt;/child&gt;
+&lt;/div&gt;</pre>
+
+	<pre>&lt;div class="parent"&gt;
+	&lt;div class="child"&gt;
+		&lt;span&gt;hello from parent&lt;/span&gt;
+		&lt;span&gt;hello from child&lt;/span&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+
+	<p>A more typical use case for scoped slots would be a list component that allows the component consumer to customize how each item in the list should be rendered:</p>
+
+	<pre>&lt;my-awesome-list :items="items"&gt;
+	&lt;li
+		slot="item"
+		slot-scope="props"
+		class="my-fancy-item"&gt;
+		{<span style="width:0px"></span>{ props.text }}
+	&lt;/li&gt;
+&lt;/my-awesome-list&gt;</pre>
+
+	<p>And the template for the list component:</p>
+
+	<pre>&lt;ul&gt;
+	&lt;slot name="item"
+		v-for="item in items"
+		:text="item.text"&gt;
+		&lt;p&gt;Fallback content&lt;/p&gt;
+&lt;/ul&gt;</pre>
+
+	<h5>Destructuring</h5>
+
+	<p><code>slot-scope</code> value is a valid JavaScript expression that can appear in the argument position of a function signature. This means that in supported environments (single-file components or modern browsers) you can use ES2015 destructuring in the expression:</p>
+
+	<pre>&lt;child&gt;
+	&lt;span slot-scope="{ text }"&gt;{<span style="width:0px"></span>{ text }}&lt;/span&gt;
+&lt;/child&gt;</pre>
+
+	<h3><a href="https://vuejs.org/v2/guide/components.html#Dynamic-Components">Dynamic Components</a></h3>
+
+	<p>The same mount point can be dynamically switched between mutliple components using the reserved <code>&lt;component&gt;</code> element and sdynamically bind to its <code>is</code> attribute:</p>
+
+	<pre>var vm = new Vue({
+	el: '#example',
+	data: {
+		currentView: 'home'
+	},
+	components: {
+		home: {...},
+		posts: {...},
+		archive: {...}
+	}
+});</pre>
+
+	<pre>&lt;component v-bind:is="currentView"&gt;
+	<<span style="width:0px"></span>!--component changes when vm.currentView changes!-->
+&lt;/component&gt;</pre>
+
+	<p>Alternatively bind directly to component objects.</p>
+
+	<pre>import SomeComponent from './SomeComponent.vue';
+
+var vm = new Vue({
+	el: '#example',
+	data: {
+		currentView: SomeComponent
+	}
+});</pre>
+
+	<h4><a href="https://vuejs.org/v2/guide/components.html#keep-alive"><code>keep-alive</code></a></h4>
+
+	<p>To keep the switched-out components in memory to preserve their state  or avoid re-rendering, wrap the dynamic component in a <code>&lt;keep-alive&gt;</code> element:</p>
+
+	<pre>&lt;keep-alive&gt;
+	&lt;component :is="currentView"&gt;
+		<<span style="width:0px"></span>!--inactive components will be cached!-->
+	&lt;/component&gt;
+&lt;/keep-alive&gt;</pre>
+
+	<p>More details on <code>&lt;keep-alive&gt;</code> can be read in the <a href="https://vuejs.org/v2/api/#keep-alive">API reference</a>.</p>
+
+
+	<h3><a href="https://vuejs.org/v2/guide/components.html#Misc">Miscellaneous</a></h3>
+
+	<h4><a href="https://vuejs.org/v2/guide/components.html#Authoring-Reusable-Components">Authoring Reusable Components</a></h4>
+
+	<p>When authoring a component it is good to keep in mind whether the component is meant to be reused somewhere else later. One-off components can be tightly coupled, but reusable components should define a clean public interface and make no assumptions about the context it is used in.</p>
+
+	<p>The API for a Vue component comes in three parts: <strong>props</strong>, <strong>events</strong>, and <strong>slots</strong>.</p>
+
+	<dl class="dl-horizontal">
+		<dt>Props</dt>
+		<dd>allow the external environment to pass data into the component</dd>
+		<dt>Events</dt>
+		<dd>allow the component to trigger side effects in the external environment</dd>
+		<dt>Slots</dt>
+		<dd>allow the external environment to compose the component with extra content</dd>
+	</dl>
+
+	<p>With the dedicated shorthand syntax for <code>v-bind</code> and <code>v-on</code>, the intents can be clearly and succintly conveyed in the template:</p>
+
+	<pre>&lt;my-component
+	:foo="baz"
+	:bar="qux"
+	@event-a="doThis"
+	@event-b="doThat"
+&gt;
+	&lt;img slot="icon" src="..."&gt;
+	&lt;p slot="main-text"&gt;Hello!&lt;/p&gt;
+&lt;/my-component&gt;</pre>
+
+	<h4><a href="https://vuejs.org/v2/guide/components.html#Child-Component-Refs">Child Component Refs</a></h4>
+
+	<p>Sometimes there is a need to directly access a child component in JavaScript, regardless of props or components. To achieve this use a reference ID on the child component using <code>ref</code>:</p>
+
+	<pre>&lt;div id="parent"&gt;
+	&lt;user-profile ref="profile" /&gt;
+&lt;/div&gt;</pre>
+
+	<pre>var parent = new Vue({ el: '#parent' });
+//access child component instance
+var child = parent.$refs.profile;</pre>
+
+	<p>When <code>ref</code> is used together with <code>v-for</code>, the ref you get will be an array containing the child components mirriring the data source.</p>
+
+	<div class="alert alert-danger">
+		<p><code>$refs</code> are only populated after the component has been rendered, and it is not reactive. It is meant as an escape hatch for direct child manipulation - <strong>avoid using <code>$refs</code> in templates or computed properties</strong>.</p>
+	</div>
+
+
+	<h4><a href="https://vuejs.org/v2/guide/components.html#Async-Components">Async Components</a></h4>
+
+	<p>Large applications may need to divide the app into smaller chunks and only load a component from the server when it is needed. To simplify this, Vue allows the developer to define a component as a factory function that asynchronously resolves a component definition. Vue will only trigger the factory function when the component actually needs to be rendered and will cache the result for future re-renders.</p>
+
+	<pre>Vue.component('async-example', function (resolve, refect) {
+	setTimeout(function () {
+		//Pass the component definition to the resolve callback
+		resolve({
+			remplate: '&lt;div&gt;I am async!&lt;/div&gt;'
+		})
+	}, 1000);	
+});</pre>
+
+	<p>The factory function receives a <code>resolve</code> callback, which is called when the component definition has been retrieved from the server. <code>reject(reason)</code> can also be called to indicate that the load has failed. <code>setTimeout</code> is being used for demonstration; actual code retrieval is up to the developer. A recommended approach is to use async components together with <a href="https://webpack.js.org/guides/code-splitting/">Webpack's code-splitting feature</a>:</p>
+
+	<pre>Vue.component('async-webpack-example', function (resolve) {
+	//this special require syntax will instruct Webpack to automatically split your build code into bundles which are loaded over Ajax requests.	
+});</pre>
+
+	<p>A <code>Promise</code> can also be returned from the factory function, with Webpack 2 + ES2015 syntax:</p>
+
+	<pre>Vue.component (
+	'async-webpack-example',
+	//The 'import' function returns a 'Promise'
+	() => import('./my-async0component')		
+)</pre>
+
+	<p>When using <strong>local registration</strong>, aa function that returns a <code>Promise</code> can be used directly:</p>
+
+	<pre>new Vue({
+	// ...
+	components: {
+		'my-component': () => import('./my-async-component')
+	}
+})</pre>
+
+	<div class="alert alert-danger">
+		<p><strong>Browserify</strong> Browserify does not, and likely will never, support asynchronous loading. There are a few workarounds that can be employed.</p>
+	</div>
+
+	<h4><a href="https://vuejs.org/v2/guide/components.html#Advanced-Async-Components">Advanced Async Components</a></h4>
+
+	<p>Starting in 2.3.0+ the async component factory can also return an object of the following format:</p>
+
+	<pre>const AsyncComp = () => ({
+	//the component to load. Should be a Promise.
+	component: import('./MyComp.vue'),
+	//a component to use while the async component is loading
+	loading: LoadingComp,
+	//a component to use if the load failt
+	error: ErrorComp
+	//a delay before showing the loading component, default: 200ms
+	delay: 200,
+	//the error component will be displayed if a timeout is provided and exceeded, default: infinity
+	timeout: 3000
+})</pre>
+
+	<div class="alert alert-info">
+		<p>When used as a route component in <code>vue-router</code>, these properties will be ignored because async components are resolved upfront before the route navigation happens. To use the above syntax for route component use <code>vue-router</code>.</p>
+	</div>
+
+	<h4><a href="https://vuejs.org/v2/guide/components.html#Component-Naming-Conventions">Component Naming Conventions</a></h4>
+
+	<p>When registering components (or props), use kebab-case, camelCase or PascalCase (all accepted):</p>
+
+	<pre>components: {
+	//registering using kebab-case
+	'kebab-cased-component': {...},
+	//camelCase
+	'camelCasedComponent': {...},
+	//PascalCase
+	'PascalCasedComponent': {...}
+}</pre>
+
+	<p>Within the HTML templates though, the kebab-case equivalents <strong>MUST</strong> be used.</p>
+
+	<pre>&lt;kebab-cased-component /&gt;
+&lt;camel-cased-component /&gt;
+&lt;pascal-cased-component /&gt;</pre>
+
+	<p>When using string templates, component namings are not restricted by HTMLs case-insensitive restrictions. Hence in the template the component can be referenced using:</p>
+
+	<ul>
+		<li>kebab-case</li>
+		<li>camelCase or kebab-case if the component has been defined using camelCase</li>
+		<li>kebab-case, camelCase or PascalCase if the component has been defined using PascalCase</li>
+	</ul>
+
+	<pre>components: {
+	'kebab-cased-component': {...},
+	camelCasedComponent: {...},
+	PascalCasedComponent: {...}
+}</pre>
+
+	<pre>&lt;kebab-cased-component /&gt;
+
+&lt;camel-cased-component /&gt;
+&lt;camelCasedComponent /&gt;
+
+&lt;pascal-cased-component /&gt;
+&lt;pascalCasedComponent /&gt;
+&lt;PascalCasedComponent /&gt;
+</pre>
+
+	<p>PascalCase is the most <em>universal declaration convention</em> and kebab-case is the most universal <em>usage convention</em>.</p>
+
+	<p>If the component isn't passed content via <code>slot</code> elements, you can even make it self-closing with a <code>/</code> after the name:</p>
+	
+	<pre>&lt;my-component /&gt;</pre>
+
+	<div class="alert alert-warning">
+		<p>This <em>only</em> works within string templates, as self-closing custom elements are not valid HTML and the browser's native parser will not understand them.</p>
+	</div>
+
+
+	<h4><a href="https://vuejs.org/v2/guide/components.html#Recursive-Components">Recursive Components</a></h4>
+
+	<p>Components can revursively invoke themselves in their own template. However this can only be done using the <code>name</code> option:</p>
+
+	<pre>name: 'unique-name-of-my-component'</pre>
+
+	<p>When a component is registered globally using <code>Vue.component</code>, the global ID is automatically set as the component's <code>name</code> option.</p>
+
+	<pre>Vue.component('unique-name-of-my-component', {
+	...
+})</pre>
+
+	<p>If care is not exercised, recursive components can also lead to infinite loops:</p>
+
+	<pre>name: 'stack-overflow',
+template: '&lt;div&gt;&lt;stack-overflow /&gt;&lt;/div&gt;</pre>
+
+	<p>The component above will result in a "max stack size exceeded" error, so make recursive invocation conditional (ie. use <code>v-if</code> that will eventaully evaluate to <code>false</code>.</p>
+
+	<h4><a href="https://vuejs.org/v2/guide/components.html#Circular-References-Between-Components">Circular References Between Components</a></h4>
+
+	<p>In the example of building a file directory tree, there's likely two components: <code>tree-folder</code> and <code>tree-folder-contents</code>.</p>
+
+	<pre>&lt;p&gt;
+	&lt;span&gt;{<span style="width:0px"></span>{ folder.name }}&lt;/span&gt;
+	&lt;free-folder-contents :children="folder.children" /&gt;
+&lt;/p&gt;</pre>
+
+<pre>&lt;ul&gt;
+	&lt;li v-for="child in children"&gt;
+		&lt;tree-folder v-if="child.children" :folder="child" /&gt;
+		&lt;span v-else&gt;{<span style="width:0px"></span>{ child.name }}&lt;/span&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</pre>
+
+	<p>These components are both <em>ancestor</em> and <em>descendant</em> in the render tree. When registering components globally, this is not an issue as Vue handles the paradox automatically.</p>
+
+	<p>If using a <strong>module system</strong> using Webpack or Browserify there'll be an error due to the infinite dependency loop "A needs B, but B first needs A, but A first needs B....". To fix this the module system needs a point at which it can define: "A needs B <em>eventually</em>, but there's no need to resolve B first."</p>
+
+	<p>In the given file directory tree example, that point should be the <code>tree-folder</code> component as the child (<code>tree-folder-contents</code>) creates the paradox, wait until the <code>beforeCreate</code> lifecycle hook to register it:</p>
+
+	<pre>beforeCreate: function () {
+	this.$options.components.TreeFolderContents = require('./tree-folder-contents.vue')		
+}</pre>
+
+	<h4><a href="https://vuejs.org/v2/guide/components.html#Inline-Templates">Inline Templates</a></h4>
+
+	<p>When the <code>inline-template</code> special attribute is present on a child component, the component will use its inner content as its template, rather than treating it as distributed content. This allows more flexible template-authoring.</p>
+
+	<pre>&lt;my-component inline-template&gt;
+	&lt;div&gt;
+		&lt;p&gt;These are compiled as the component's own template&lt;/p&gt;
+		&lt;p&gt;Not parent's transclusion content.&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/my-component&gt;</pre>
+
+	<p><code>inline-template</code> makes the scope of your templates harder to reason about. As a best practice, prefer defining templates inside the component using the <code>template</code> option or in a <code>template</code> element in a <code>.vue</code> file.</p>
+
+
+	<h4><a href="https://vuejs.org/v2/guide/components.html#X-Templates">X-Templates</a></h4>
+
+	<p>Template can also be defined inside of a script element with the type <code>text/x-template</code>, then referencing the template by an id:</p>
+
+	<pre>&lt;script type="text/x-template" id="hello-world-template"&gt;
+	&lt;p&gt;Hello hello hello&lt;/p&gt;
+&lt;/script&gt;</pre>
+
+	<pre>Vue.component('hello-world', {
+	template: '#hello-world-template'		
+})</pre>
+
+	<p>Useful for demos with large templates or in extremely small applications, but otherwise should be avoided as templates get separated from the rest of the component definition.</p>
+
+
+	<h4><a href="https://vuejs.org/v2/guide/components.html#Cheap-Static-Components-with-v-once">Cheap Static Components wigh <code>v-once</code></a></h4>
+
+	<p>Plain HTML elements are very fast in Vue, but sometimes there may be a component that contains a <strong>lot</strong> of static content. In these cases, ensure it is only validated once then cached by using the <code>v-once</code> directive on the root element.</p>
+
+	<pre>&lt;template&gt;
+	&lt;div v-once&gt;
+		&lt;h1&gt;Terms of Service&lt;/h1&gt;
+		..... alot of static content...
+	&lt;/div&gt;
+&lt;/template&gt;</pre>
 
 </section>
