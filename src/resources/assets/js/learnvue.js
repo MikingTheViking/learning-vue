@@ -6,6 +6,9 @@
 
 require('./bootstrap');
 
+//Highlight.js, for automatic code highlighting
+const hljs = require('highlight.js');
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -88,4 +91,12 @@ Vue.component('child', {
 
 const app = new Vue({
     el: '#app'
+});
+
+
+
+
+
+$('pre').each(function (i, block) {
+    hljs.highlightBlock(block);
 });

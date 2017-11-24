@@ -21,9 +21,7 @@
         
         <div class="container-fluid">
 
-            <div class="page-header">
-                <h1>Vue.js <small>A learning exercise with the Viking</small></h1>
-            </div>
+            <h1>Vue.js <small class="text-muted">A learning exercise with the Viking</small></h1>
 
             <h2>The Essentials</h2>
 
