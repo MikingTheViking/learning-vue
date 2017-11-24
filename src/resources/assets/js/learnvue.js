@@ -12,7 +12,6 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-
 import Vue from 'vue';
 
 //Vue.component('category', require('./learnvue-components/Category.vue'));
@@ -43,6 +42,39 @@ Vue.component('array-syntax-sample', require('./learnvue-components/Class-And-St
 //conditional rendering
 Vue.component('conditional-rendering-sample', require('./learnvue-components/Conditional-Rendering/ReusableElementSample.vue'));
 Vue.component('conditional-rendering-key-sample', require('./learnvue-components/Conditional-Rendering/ReusableElementsKey.vue'));
+
+//list rendering
+Vue.component('for-basic-sample', require('./learnvue-components/List-Rendering/ForBasicExample.vue'));
+Vue.component('for-basic-with-index-sample', require('./learnvue-components/List-Rendering/ForBasicWithIndexExample.vue'));
+Vue.component('for-object-value-sample', require('./learnvue-components/List-Rendering/ObjectValueExample.vue'));
+Vue.component('for-object-key-value-sample', require('./learnvue-components/List-Rendering/ObjectKeyValueExample.vue'));
+Vue.component('for-object-index-key-value-sample', require('./learnvue-components/List-Rendering/ObjectKeyValueIndexExample.vue'));
+Vue.component('simple-todo-list', require('./learnvue-components/List-Rendering/SimpleTodoList.vue'));
+
+
+//Event Handling
+Vue.component('simple-on-event', require('./learnvue-components/Event-Handling/SimpleOnEvent.vue'));
+Vue.component('simple-on-event-method', require('./learnvue-components/Event-Handling/SimpleOnEventMethod.vue'));
+Vue.component('simple-inline', require('./learnvue-components/Event-Handling/SimpleInline.vue'));
+
+//Form Input Binding
+Vue.component('simple-text-binding', require('./learnvue-components/Form-Input-Bindings/TextModel.vue'));
+Vue.component('simple-textarea-binding', require('./learnvue-components/Form-Input-Bindings/TextareaModel.vue'));
+Vue.component('simple-checkbox-single-binding', require('./learnvue-components/Form-Input-Bindings/CheckboxSingle.vue'));
+Vue.component('simple-checkbox-multiple-binding', require('./learnvue-components/Form-Input-Bindings/CheckboxMultiple.vue'));
+Vue.component('radio-binding', require('./learnvue-components/Form-Input-Bindings/RadioModel.vue'));
+Vue.component('select-binding', require('./learnvue-components/Form-Input-Bindings/SelectModel.vue'));
+Vue.component('checkbox-value-binding', require('./learnvue-components/Form-Input-Bindings/CheckboxValueBinding.vue'));
+Vue.component('select-options-binding', require('./learnvue-components/Form-Input-Bindings/SelectOptionsBinding.vue'));
+Vue.component('lazy-modifier', require('./learnvue-components/Form-Input-Bindings/LazyModifier.vue'));
+
+
+//components
+Vue.component('prop-simple', require('./learnvue-components/Components/ComponentProps.vue'));
+Vue.component('dynamic-props', require('./learnvue-components/Components/DynamicProps.vue'));
+Vue.component('event-handling', require('./learnvue-components/Components/EventHandling.vue'));
+Vue.component('currency-input-parent', require('./learnvue-components/Components/InputModelParent.vue'));
+Vue.component('currency-input-model-parent', require('./learnvue-components/Components/CurrencyInputModelParent.vue'));
 
 
 Vue.component('child', {
