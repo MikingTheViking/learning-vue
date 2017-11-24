@@ -14,3 +14,7 @@ src/vendor/
 src/public/mix-manifest\.json
 
 src/public/css/
+
+node_modules/
+
+src/package-lock\.json
