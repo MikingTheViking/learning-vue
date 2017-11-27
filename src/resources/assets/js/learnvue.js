@@ -6,6 +6,11 @@
 
 require('./bootstrap');
 
+import Velocity from 'velocity-animate';
+
+//Highlight.js, for automatic code highlighting
+const hljs = require('highlight.js');
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -77,6 +82,28 @@ Vue.component('currency-input-parent', require('./learnvue-components/Components
 Vue.component('currency-input-model-parent', require('./learnvue-components/Components/CurrencyInputModelParent.vue'));
 
 
+//transitions
+Vue.component('basic-opacity', require('./learnvue-components/Transitions/BasicOpacity.vue'));
+Vue.component('advanced-opacity', require('./learnvue-components/Transitions/AdvancedOpacity.vue'));
+Vue.component('basic-animation', require('./learnvue-components/Transitions/BasicAnimation.vue'));
+Vue.component('advanced-animation', require('./learnvue-components/Transitions/AdvancedAnimation.vue'));
+Vue.component('javascript-hooks', require('./learnvue-components/Transitions/JavaScriptHooks.vue'));
+Vue.component('javascript-transition', require('./learnvue-components/Transitions/JavaScriptTransition.vue'));
+Vue.component('transition-modes-none', require('./learnvue-components/Transitions/TransitionModesNone.vue'));
+Vue.component('transition-modes-none-again', require('./learnvue-components/Transitions/TransitionModesNoneAgain.vue'));
+Vue.component('transition-modes', require('./learnvue-components/Transitions/TransitionModes.vue'));
+Vue.component('component-transition', require('./learnvue-components/Transitions/ComponentTransition.vue'));
+Vue.component('list-transitions', require('./learnvue-components/Transitions/ListTransitions.vue'));
+Vue.component('list-move-transitions', require('./learnvue-components/Transitions/ListMoveTransitions.vue'));
+Vue.component('list-moves-and-transitions', require('./learnvue-components/Transitions/ListMovesAndTransitions.vue'));
+Vue.component('staggered-list-transition', require('./learnvue-components/Transitions/StaggeredListTransitions.vue'));
+Vue.component('reused-transition', require('./learnvue-components/Transitions/ReusedTransitionRoot.vue'));
+
+
+
+Vue.component('reusable-transition-template-component', require('./learnvue-components/Transitions/ReusableTransitionUsingTemplateComponent.vue'));
+
+
 Vue.component('child', {
 
     //declare the props
@@ -88,4 +115,12 @@ Vue.component('child', {
 
 const app = new Vue({
     el: '#app'
+});
+
+
+
+
+
+$('pre').each(function (i, block) {
+    hljs.highlightBlock(block);
 });

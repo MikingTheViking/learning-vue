@@ -5,24 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    @include('inclusions.favicons')
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Learning Vue') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+    @include('inclusions.navbar')
     <div id="app">
-        @include('inclusions.navbar')
+        
         <div class="container-fluid">
 
-            <div class="page-header">
-                <h1>Vue.js <small>A learning exercise with the Viking</small></h1>
-            </div>
+            <h1>Vue.js <small class="text-muted">A learning exercise with the Viking</small></h1>
 
             <h2>The Essentials</h2>
+
             @include('learnvue-sections.essentials.what-is-it')
             @include('learnvue-sections.essentials.vue-instance')
             @include('learnvue-sections.essentials.template-syntax')
