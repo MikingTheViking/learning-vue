@@ -9,7 +9,8 @@
         enter-active-class="animated tada"
         leave-active-class="animated bounceOutRight"
     >
-        <slot>No content to be distributed. This is the default content for the reusable transition component.</slot>
+        
+        <slot><p>slot in the reusable</p></slot>
     </transition>
 
 </template>
