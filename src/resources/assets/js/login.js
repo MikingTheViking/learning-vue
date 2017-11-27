@@ -6,15 +6,3 @@
  */
 
 require('./bootstrap');
-
-import Vue from 'vue';
-
-import Login from './components/Login.vue';
-
-new Vue({
-
-    el: '#login-app',
-
-    components: {Login}
-
-});

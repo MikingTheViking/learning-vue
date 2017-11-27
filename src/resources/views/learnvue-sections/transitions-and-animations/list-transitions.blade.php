@@ -23,4 +23,416 @@
         <li>Component root nodes</li>
     </ul>
 
+    <pre>&lt;div id="demo"&gt;
+    &lt;button v-on:click="show = !show"&gt;
+        Toggle
+    &gt;/button&gt;
+    &lt;transition name="fade"&gt;
+        &lt;p v-if="show"&gt;hello&lt;/p&gt;
+    &lt;/transition&gt;
+&lt;/div&gt;</pre>
+
+    <pre>.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to {
+    opacity:0;
+}</pre>
+
+    <div>
+        <basic-opacity class="vue-component-root row" />
+    </div>
+
+    <p>When an element wrapped in a <code>transition</code> component is inserted or removed, the following occurs:</p>
+
+    <ol>
+        <li>Vue will automatically determng whether the target element has CSS transitions or animations applied. If so, CSS transition classes will be added /removed at appropriate timings.</li>
+        <li>If the transition component provided JavaScript hooks, these hooks will be called at appropriate timings.</li>
+        <li>If no CSS transitions/animations are detected and no JavaScript hooks are provided, the DOM operations for insertion and/or removal will be executed immediately on the next frame (<strong>Note:</strong> the browser's animation frame, NOT tthe Vue.js concept of <code>nextTick</code>)</li>
+    </ol>
+
+    <h4><a href="https://vuejs.org/v2/guide/transitions.html#Transition-Classes">Transition Classes</a></h4>
+
+    <p>There are six classes applied for enter/leave transitions:</p>
+
+    <dl>
+        <dt><code>v-enter</code></dt>
+        <dd>Starting state for enter. Added before the element is inserted, removed one frame after the element is inserted.</dd>
+        <dt><code>v-enter-active</code></dt>
+        <dd>Active state for enter. Applied during the entire entering phase. Added before the element is inserted, removed when transition/animation finishes. This class can be used to define the duration, delay and easing curve for the entering transition.</dd>
+        <dt><code>v-enter-to</code></dt>
+        <dd><strong>Only available in 2.1.8+</strong>. Ending state for enter. Added one frame after the element is inserted (at the same time <code>v-enter</code> is removed) then removed when the transitions/animation finishes.</dd>
+        <dt><code>v-leave</code></dt>
+        <dd>Starting state for leave. Added immediately when a leaving transition is triggered, removed after one frame.</dd>
+        <dt><code>v-leave-active</code></dt>
+        <dd>Active state for leave. Applied during the entire leaving phase. Added immediately when leave transition is triggered, removed when the transition/animation finishes. This class can be used to define the duration, delay and easing curve for the leaving transition.</dd>
+        <dt><code>v-leave-to</code></dt>
+        <dd><strong>Only avaialble in 2.1.8+</strong>. Ending state for leave. Added one frame after a leaving transition is triggered (at the same time <code>v-leave</code> is removed), removed when the transition /animation finishes.</dd>
+    </dl>
+
+    <img src="images/vue-transition-classes.png" />
+
+    <p>Each of these classes will be prefixed with the name of the transition. In the example above, the <code>v-</code> prefix is the default, used when a <code>&lt;transition&gt;</code> element has no name. If a name is used on the transition (such as <code>&lt;transition name="my-transition"&gt;</code> then the <code>v-enter</code> class would instead be <code>my-transition-enter</code>.</p>
+
+    <p><code>v-enter-active</code> and <code>v-enter-leave</code> enable the ability to speify different easing curves for enter/leave transitions.</p>
+
+
+    <h4><a href="https://vuejs.org/v2/guide/transitions.html#CSS-Transitions">CSS Transitions</a></h4>
+
+    <p>One of the most common transition types uses CSS transitions.</p>
+
+    <pre>&lt;div id="example-1"&gt;
+    &lt;button @click="show = !show"&gt;
+        Toggle
+    &lt;/button&gt;
+    &lt;transition name="slide-fade"&gt;
+        &lt;p v-if="show"&gt;hello&lt;/p&gt;
+    &lt;/transition&gt;
+&lt;/div&gt;</pre>
+
+    <pre>.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}</pre>
+
+    <div>
+        <advanced-opacity class="vue-component-root row" />
+    </div>
+
+    <h4><a href="https://vuejs.org/v2/guide/transitions.html#CSS-Animations">CSS Animations</a></h4>
+
+    <p>CSS animations are applied in the same way as CSS transitions, the difference is that <code>v-enter</code> is not removed immediately after the element is inserted, but on an <code>animationend</code> event.</p>
+
+    <pre>&lt;div id="example-2"&gt;
+    &lt;button @click="show = !show"&gt;Toggle show &lt;/button&gt;
+    &lt;transition name="bounce"&gt;
+        &lt;p v-if="show"&gt;Blah blah &lt;/p&gt;
+    &lt;/transition&gt;
+&lt;/div&gt;</pre>
+
+    <pre>.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}</pre>
+
+    <div>
+        <basic-animation class="vue-component-root row" />
+    </div>
+
+    <h4><a href="https://vuejs.org/v2/guide/transitions.html#Custom-Transition-Classes">Custom Transition Classes</a></h4>
+
+    <p>Custom transition classes can be used to override the conventional class name (such as when using a third party CSS animation library like <em>Animate.css</em>) by providing the following attributes:</p>
+
+    <ul>
+        <li><code>enter-class</code></li>
+        <li><code>enter-active-class</code></li>
+        <li><code>enter-to-class</code></li>
+        <li><code>leave-class</code></li>
+        <li><code>leave-active-class</code></li>
+        <li><code>leave-to-class</code></li>
+    </ul>
+
+
+    <div>
+        <advanced-animation class="vue-component-root row" />
+    </div>
+
+
+    <h4><a href="https://vuejs.org/v2/guide/transitions.html#Using-Transitions-and-Animations-Together">Using Transitions and Animations Together</a></h4>
+
+    <p>Vue attaches event listeners in order to know when a transition has ended. It acn either be <code>transitionend</code> or <code>animationend</code>, depending on the type of CSS rules applied. If only using one or the other, Vue can automatically detect the correct type.</p>
+
+    <p>In some cases a component may use both (CSS animation triggered by Vue, CSS transition effect on hover) and in these cases it must be explicitly specified for Vue which type to care aboue in a <code>type</code> attribute with a value of either <code>animation</code> or <code>transition</code>.</p>
+
+    <h4><a href="https://vuejs.org/v2/guide/transitions.html#Explicit-Transition-Durations">Explicit Transition Durations</a></h4>
+
+    <p>By default, Vue waits for the first <code>transitionend</code> or <code>animationend</code> event on the root transition element to determine when the transition has finished. This may not always be desired (such as when using a choreographed transition sequence with delayed transitions, etc.).</p>
+
+    <p>In these cases specify an explicit transition duration (in ms) using the <code>duration</code> prop on the <code>&lt;transition&gt;</code> component:</p>
+
+    <pre>&lt;transition :duration="1000"&gt;....&lt;/transition&gt;</pre>
+
+    <p>Explicit values can also be defined for enter and leave durations:</p>
+
+    <pre>&lt;transition :duration="{ enter: 500, leave: 800 }"&gt;...&lt;/transition&gt;</pre>
+
+    <h4><a href="https://vuejs.org/v2/guide/transitions.html#JavaScript-Hooks">JavaScript Hooks</a></h4>
+
+    <p>JavaScript hooks can also be defined in attributes:</p>
+
+    <pre>&lt;transition
+    v-on:before-enter="beforeEnter"
+    v-on:enter="enter"
+    v-on:after-enter="afterEnter"
+    v-on:enter-cancelled="enterCancelled"
+    
+    v-on:before-leave="beforeLeave"
+    v-on:leave="leave"
+    v-on:after-leave="afterLeave"
+    v-on:leave-cancelled="leaveCancelled"
+&gt;
+....
+&lt;/transition&gt;</pre>
+    
+    <pre>// ...
+methods: {
+  // --------
+  // ENTERING
+  // --------
+  beforeEnter: function (el) {
+    // ...
+  },
+  // the done callback is optional when
+  // used in combination with CSS
+  enter: function (el, done) {
+    // ...
+    done()
+  },
+  afterEnter: function (el) {
+    // ...
+  },
+  enterCancelled: function (el) {
+    // ...
+  },
+  // --------
+  // LEAVING
+  // --------
+  beforeLeave: function (el) {
+    // ...
+  },
+  // the done callback is optional when
+  // used in combination with CSS
+  leave: function (el, done) {
+    // ...
+    done()
+  },
+  afterLeave: function (el) {
+    // ...
+  },
+  // leaveCancelled only available with v-show
+  leaveCancelled: function (el) {
+    // ...
+  }
+}</pre>
+
+    <div>
+        <javascript-hooks class="vue-component-root row" />
+    </div>
+
+    <p>These hooks can be used in combination with CSS transitions/animations or on their own.</p>
+
+    <div class="alert alert-danger">
+        <p>When using JavaScript-only transitions, the <code>done</code> callbacks are required for the <code>enter</code> and <code>leave</code> hooks. Otherwise the hooks will be called synchronously and the transition will finish immediately.</p>
+
+        <hr>
+
+        <p>It is also a good idea to explicitly add <code>v-bind:css="false"</code> for JavaScript-only transitions so that Vue can skip the CSS detection. This also prevents CSS rules from accidentally interfering with the transition.</p>
+    </div>
+
+    <h5>Example</h5>
+
+    <p>Here is an example using Velocity.js</p>
+
+    <pre>&lt;div&gt;
+    &lt;button @click="show = !show"&gt;
+        Toggle
+    &lt;/button&gt;
+    &lt;transition
+        v-on:before-enter="beforeEnter"
+        v-on:enter="enter"
+        v-on:leave="leave"
+        v-bind:css="false"
+    &gt;
+        &lt;p v-if="show"&gt;
+            demo
+        &lt;/p&gt;
+    &lt;/transition&gt;
+&lt;/div&gt;</pre>
+
+    <pre>...
+methods: {
+    beforeEnter: function (el) {
+        el.style.opacity = 0;
+    },
+    enter: function (el, done) {
+      Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
+      Velocity(el, { fontSize: '1em' }, { complete: done })
+    },
+    leave: function (el, done) {
+      Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
+      Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
+      Velocity(el, {
+        rotateZ: '45deg',
+        translateY: '30px',
+        translateX: '30px',
+        opacity: 0
+      }, { complete: done })
+    }
+}</pre>
+
+	<div>
+		<javascript-transition class="vue-component-root row" />
+	</div>
+
+
+	<h3><a href="https://vuejs.org/v2/guide/transitions.html#Transitions-on-Initial-Render">Transitions on Initial Render</a></h3>
+
+	<p>To add a transition on the initial render of a node, add the <code>appear</code> attribute:</p>
+
+	<pre>&lt;transition appear&gt;...</pre>
+
+	<p>By default, this will use the transition specified for entering and leaving. Alternatively specify custom CSS classes:</p>
+
+	<pre>&lt;transition
+	appear
+	appear-class="custom-appear-class"
+	appear-to-class="custom-appear-to-class"
+	appear-active-class="custom-appear-active-class"
+&gt;.....&lt;/transition&gt;</pre>
+
+	<p>and custom JavaScript hooks:</p>
+
+	<pre>&lt;transition
+	appear
+	v-on:before-appear="customBeforeAppearHook"
+	v-on:appear="customAppearHook"
+	v-on:after-appear="customAfterAppearHook"
+	v-on:appear-cancelled="customAppearCancelledHook"
+&gt;....&lt;/transition&gt;</pre>
+
+	<h3><a href="https://vuejs.org/v2/guide/transitions.html#Transitioning-Between-Elements">Transitioning Between Elements</a></h3>
+
+	<p>Transitioning between raw components can be accomplished using <code>v-if</code>/<code>v-else</code>. A common two-element transition is between a list container and a message describing an empty list:</p>
+
+	<pre>&lt;transition&gt;
+	&lt;table v-if="items.length > 0"&gt;
+		....
+	&lt;/table&gt;
+	&lt;p v-else&gt;Sorry, no items found.&lt;/p&gt;
+&lt;/transition&gt;</pre>
+
+	<div class="alert alert-danger">
+		<p>When toggling between elements that have the <strong>same tag name</strong>, Vue must be explcitly instructed that they are distinct elements by providing unique <code>key</code> attributes. Otherwise Vue's compiler will only replace the content of the element for efficiency.</p>
+		<hr>
+		<p><em>It is considered good practice to always key multiple items within a <code>&lt;transition&gt;</code> component.</em></p>
+	</div>
+
+	<pre>&lt;transition&gt;
+	&lt;button v-if="isEditing" key="save"&gt;
+		Save
+	&lt;/button&gt;
+	&lt;button v-else key="edit"&gt;
+		Edit
+	&lt;/button&gt;
+&lt;/transition&gt;</pre>
+
+	<p>In these cases the <code>key</code> attribute can also be used to transition between different states of the same element. Instead of using <code>v-if</code> and <code>v-else</code>:</p>
+
+	<pre>&lt;transition&gt;
+	&lt;button v-bind:key="isEditing"&gt;
+		{<span style="width:0px"></span>{ isEditing ? 'Save' : 'Edit'}}
+	&lt;/button&gt;
+&lt;/transition&gt;</pre>
+
+	<p>This logic can be applied for transitioning between any number of elements, either by multiple <code>v-if</code>'s or binding a single element to a dynamic property.</p>
+
+	<pre>&lt;transition&gt;
+	&lt;button v-bind:key="docState"&gt;
+		{<span style="width:0px"></span>{ buttonMessage}}
+	&lt;/button&gt;
+&lt;/transition&gt;</pre>
+
+	<pre>...,
+computed: {
+	buttonMessage: function () {
+		switch (this.docState) {
+			case 'saved': return 'Edit'
+			case 'edited': return 'Save'
+			case 'editing': return 'Cancel'
+		}
+	}	
+}</pre>
+
+	<h4><a href="https://vuejs.org/v2/guide/transitions.html#Transition-Modes">Transition Modes</a></h4>
+
+	<p>A problem that can be typically run into is when mutliple components enter and leave simultaneously. Try clicking the button below, you'll notice that there is a state where both buttons exist; one is transitioning in while the other is simultaneously transitioning out.</p>
+
+	<div>
+		<transition-modes-none class="vue-component-root row" />
+	</div>
+
+	<p>If the components are style correctly, this can work as a slide transition or replacement:</p>
+
+	<div>
+		<transition-modes-none-again class="vue-component-root row" />
+	</div>
+
+	<p>Simultaneous entering and leaving transitions aren't always desirable, so Vue offers some alternative <strong>transition modes</strong>:</p>
+
+	<dl>
+		<dt><code>in-out</code></dt>
+		<dd>New element transitions in first, then when complete the current element transitions out.</dd>
+		<dt><code>out-in</code></dt>
+		<dd>Current element transitions out first, then when complete the new element transitions in.</dd>
+	</dl>
+
+	<div>
+		<transition-modes class="vue-component-root row" />
+	</div>
+
+	<h3><a href="https://vuejs.org/v2/guide/transitions.html#Transitioning-Between-Components">Transitioning Between Components</a></h3>
+
+	<p>Transitioning between components is simpley than transitioning between elements as no <code>key</code> attribute is needed. Instead wrap a dynamic component:</p>
+
+	<pre>&lt;transition name="component-fade" mode="out-in"&gt;
+	&lt;component v-bind:is="view" /&gt;
+&lt;/transition&gt;</pre>
+
+	<pre>....,
+data() {
+	return {
+		view: 'v-a'
+	}	
+},
+components: {
+	'v-a': {
+		template: '&lt;div&gt;Component A&lt;/div&gt;'
+	},
+	'v-b': {
+		template: '&lt;div&gt;Component B&lt;/div&gt;'
+	}	
+}</pre>
+
+<pre>.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity .3s ease;
+}
+.component-fade-enter, .component-fade-leave-to
+/* .component-fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}</pre>
+
+	<div>
+		<component-transition class="vue-component-root row" />
+	</div>
+
 </section>

@@ -43,22 +43,13 @@
                     aria-expanded="false">
                     References
                     <span class="caret"></span>
-
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                        Logout
+                    <a class="dropdown-item" href="{{ route('learnvue') }}">
+                        Learn Vue
                     </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('learnvue') }}">Learn Vue</a>
-            </li>
-
 
         </ul>
     </div>
