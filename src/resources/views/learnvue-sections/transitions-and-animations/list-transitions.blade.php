@@ -435,4 +435,198 @@ components: {
 		<component-transition class="vue-component-root row" />
 	</div>
 
+	<h3><a href="https://vuejs.org/v2/guide/transitions.html#List-Transitions">List Transitions</a></h3>
+
+	<p>Transitions, so far, have been managed for:</p>
+
+	<ul>
+		<li>Individual nodes</li>
+		<li>Multiple nodes where only 1 is rendered at a time</li>
+	</ul>
+
+	<p>When intending to render a whole list of items simultaneously (such as with <code>v-for</code>) use the <code>&lt;transition-group&gt;</code> component.</p>
+
+	<ul>
+		<li>Unlike <code>&lt;transition&gt;</code>, it renders an actual element (a <code>&lt;span&gt;</code>) by default. This default tag can be changed with the <code>tag</code> attribute.</li>
+		<li>Elements inside are <strong>always required</strong> to have a unique <code>key</code> attribute.</li>
+	</ul>
+
+	<h4><a href="https://vuejs.org/v2/guide/transitions.html#List-Entering-Leaving-Transitions">List Entering/Leaving Transitions</a></h4>
+
+	<pre>&lt;div&gt;
+	&lt;button v-on:click="add"&gt;Add&lt;/button&gt;
+	&lt;button v-on:click="remove"&gt;Remove&lt;/button&gt;
+	&lt;transition-group name="list" tag="p"&gt;
+		&lt;span v-for="item in items" v-bind:keys="item" class="list-item"&gt;
+			{<span style="width:0px"></span>{ item }}
+		&lt;/span&gt;
+	&lt;/transition&gt;
+&lt;/div&gt;</pre>
+
+	<pre>...,
+data: {
+	items: [1,2,3,4,5,6,7,8,9],
+	nextNum: 10
+},
+methods: {
+	randomIndex: function () {
+		return Math.floor(Math.random() * this.items.length)
+	},
+	add: function () {
+		this.items.splice(this.randomIndex(), 0, this.nextNum++)
+	},
+	remove: function () {
+		this.items.splice(this.randomIndex(), 1)
+	}
+}</pre>
+
+	<pre>.list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}</pre>
+
+	<div>
+		<list-transitions class="vue-component-root row" />
+	</div>
+
+	<p>The only issue with the previous example is that when an item is removed, the others around it instantly snap into place instead of a smooth transition.</p>
+
+
+	<h4><a href="https://vuejs.org/v2/guide/transitions.html#List-Move-Transitions">List Move Transitions</a></h4>
+
+	<p><code>&lt;transition-group&gt;</code> component has another trick up its sleeve: it can also animate changes in position in addendum to entering/leaving. This is accomplished using the new <code>v-move</code> class, which is added when items are changing positions. Like other classes the prefix will match the value of a provided <code>name</code> attribute, allowing a manually specified class with the <code>move-class</code> attribute.</p>
+
+	<pre>&lt;div&gt;
+	&lt;button v-on:click="shuffle"&gt;Shuffle&lt;/button&gt;
+	&lt;transition-group name="flip-list" tag="ul"&gt;
+		&lt;li v-for="item in items" v-bind:key="item"&gt;
+			{<span style="width:0px"></span>{ item }}
+		&lt;/li&gt;
+	&lt;/transition&gt;
+&lt;/div&gt;</pre>
+
+	<pre>...,
+data: {
+	items: [1,2,3,4,5,6,7,8,9,10]	
+},
+methods: {
+	shuffle: function () {
+		this.items = shuffle(this.items)
+	}	
+}</pre>
+
+	<pre>.flip-list-move {
+	transition: transform 1s;
+}</pre>
+
+
+	<div>
+		<list-move-transitions class="vue-component-root row" />
+	</div>
+
+	<p>Combining both of the previous examples makes for pretty smooth list manipulations and transitions. This may seem magical, but under the hood Vue is using an anmiation technique called FLIP.</p>
+
+	<div>
+		<list-moves-and-transitions class="vue-component-root row" />
+	</div>
+
+
+    <div class="alert alert-danger">
+        <p>FLIP transitions do not work with elements set to <code>display: inline</code>. As an alterative, use <code>display: inline-block</code> or place the elements in a flex context.</p>
+    </div>
+
+    <p>FLIP animations are not limited to a single axis. A multidimensional grid can be transitioned too.</p>
+
+    <h4><a href="https://vuejs.org/v2/guide/transitions.html#Staggering-List-Transitions">Staggering List Transitions</a></h4>
+
+    <p>By communicating with JavaScript transitions through data-attributes it's possible to stagger transitions in a list:</p>
+
+    <pre>&lt;div&gt;
+    &lt;input v-model="query"&gt;
+    &lt;transition-group
+        name="staggered-fade"
+        tag="ul"
+        v-bind:css="false"
+        v-on:before-enter="beforeEnter"
+        v-on:enter="enter"
+        v-on:leave="leave"
+    &gt;
+        &lt;li
+            v-for="(item, index) in computedList"
+            v-bind:key="item.msg"
+            v-bind:data-index="index"
+        &gt;{<span style="width:0px"></span>{ item.msg }}&lt;/li&gt;
+    &lt;/transition-group&gt;
+&lt;/div&gt;</pre>
+
+    <pre>...,
+data() {
+    return {
+        query: '',
+        list: [
+            { msg: 'Bruce Lee'},
+            { msg: 'Jackie Chan'},
+            { msg: 'Chuck Norris'},
+            { msg: 'Jet Li'},
+            { msg: 'Kung Fury'},
+        ]
+    }
+},
+computed: {
+    computedList: function () {
+        var vm = this;
+        return this.list.filter(function (item) {
+            return item.msg.toLowerCase().indexOf(vm.query.toLowerCase()) !== -1
+        });
+    }
+},
+methods: {
+    beforeEnter: function (el) {
+      el.style.opacity = 0
+      el.style.height = 0
+    },
+    enter: function (el, done) {
+      var delay = el.dataset.index * 150
+      setTimeout(function () {
+        Velocity(
+          el,
+          { opacity: 1, height: '1.6em' },
+          { complete: done }
+        )
+      }, delay)
+    },
+    leave: function (el, done) {
+      var delay = el.dataset.index * 150
+      setTimeout(function () {
+        Velocity(
+          el,
+          { opacity: 0, height: 0 },
+          { complete: done }
+        )
+      }, delay)
+    }   
+}</pre>
+
+    <div>
+        <staggered-list-transition class="vue-component-root row" />
+    </div>
+
+    <h3><a href="https://vuejs.org/v2/guide/transitions.html#Reusable-Transitions">Reusable Transitions</a></h3>
+
+    <p>Transitions can be reused through Vue's component system. To create a reusable transition, place a <code>&lt;transition&gt;</code> or <code>&lt;transition-group&gt;</code> component at the root then pass any children into the template component.</p>
+
+    <h4>Example with a Template Component</h4>
+
+    <div>
+        <reused-transition class="vue-component-root row" />
+    </div>
+
+
 </section>

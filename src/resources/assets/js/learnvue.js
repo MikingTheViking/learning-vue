@@ -93,6 +93,15 @@ Vue.component('transition-modes-none', require('./learnvue-components/Transition
 Vue.component('transition-modes-none-again', require('./learnvue-components/Transitions/TransitionModesNoneAgain.vue'));
 Vue.component('transition-modes', require('./learnvue-components/Transitions/TransitionModes.vue'));
 Vue.component('component-transition', require('./learnvue-components/Transitions/ComponentTransition.vue'));
+Vue.component('list-transitions', require('./learnvue-components/Transitions/ListTransitions.vue'));
+Vue.component('list-move-transitions', require('./learnvue-components/Transitions/ListMoveTransitions.vue'));
+Vue.component('list-moves-and-transitions', require('./learnvue-components/Transitions/ListMovesAndTransitions.vue'));
+Vue.component('staggered-list-transition', require('./learnvue-components/Transitions/StaggeredListTransitions.vue'));
+Vue.component('reused-transition', require('./learnvue-components/Transitions/ReusedTransitionRoot.vue'));
+
+
+
+Vue.component('reusable-transition-template-component', require('./learnvue-components/Transitions/ReusableTransitionUsingTemplateComponent.vue'));
 
 
 Vue.component('child', {
