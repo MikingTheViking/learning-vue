@@ -65,13 +65,10 @@ watch: {
             </ol>
         </div>
         <div class="col-xs-6">
-            <div class="thumbnail">
-                <img class="img-responsive" src="/images/vue-lifecycle.png" />
-                <div class="caption">
-                    <h3>Lifecycle Diagram</h3>
-                    <p>The lifecycle of a Vue component is shown top-to-bottom in the diagram above.</p>
-                </div>
-            </div>
+            <figure class="figure">
+                <img src="/images/vue-lifecycle.png" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                <figcaption class="figure-caption">Lifecycle Diagram</figcaption>
+            </figure>
         </div>
     </div>
 </section>

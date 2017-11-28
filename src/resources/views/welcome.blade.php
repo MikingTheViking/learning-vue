@@ -20,7 +20,15 @@
         @include('inclusions.navbar')
         
         <div class="container-fluid">
-
+            <div class="d-flex justify-content-center">
+                <h1>MikingTheViking's</h1>    
+            </div>
+            <div class="d-flex justify-content-center">
+                <h2>Web Dev Resources</h2>
+            </div>
+            <div class="d-flex justify-content-center" id="container">
+            
+            </div>
         </div>
 
         <!-- Scripts -->

@@ -70,8 +70,10 @@
         <dd><strong>Only avaialble in 2.1.8+</strong>. Ending state for leave. Added one frame after a leaving transition is triggered (at the same time <code>v-leave</code> is removed), removed when the transition /animation finishes.</dd>
     </dl>
 
-    <img src="images/vue-transition-classes.png" />
-
+    <figure class="figure">
+        <img src="images/vue-transition-classes.png" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+        <figcaption class="figure-caption">Transition Classes</figcaption>
+    </figure>
     <p>Each of these classes will be prefixed with the name of the transition. In the example above, the <code>v-</code> prefix is the default, used when a <code>&lt;transition&gt;</code> element has no name. If a name is used on the transition (such as <code>&lt;transition name="my-transition"&gt;</code> then the <code>v-enter</code> class would instead be <code>my-transition-enter</code>.</p>
 
     <p><code>v-enter-active</code> and <code>v-enter-leave</code> enable the ability to speify different easing curves for enter/leave transitions.</p>
