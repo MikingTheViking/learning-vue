@@ -60,19 +60,13 @@ components: {
 
     <p>Components are meant to be used together in a parent-child relationship: component A may use component B in its own template. Components should be written and reasoned in relative isolation to accomodate testing, maintenance and reuse. Parent components pass data to child components, and child coponents pass events up to the parent.</p>
 
-    
-    <div class="col-sm-6">
-        <blockquote>Props Down, Events Up</blockquote>
+    <div class="d-flex flex-column">
+    	<p class="lead">Props Down, Events Up</p>
         <p>The parent passes data down to the child via <strong>props</strong>, and the child sends messages to the parent via <strong>events</strong>.</p>
-    </div>
-    <div class="col-sm-6">
-        <div class="thumbnail">
-            <img src="/images/vue-props-events.png" />
-            <div class="caption">
-                <h3>Props Down, Events Up</h3>
-                <p>A visual representation of the concept in a parent-child component relationship.</p>
-            </div>
-        </div>
+	     <figure class="figure">
+                <img src="/images/vue-props-events.png" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure.">
+                <figcaption class="figure-caption">Props Down, Events Up</figcaption>
+            </figure>
     </div>
 
     <h3><a href="https://vuejs.org/v2/guide/components.html#Props">Props</a></h3>

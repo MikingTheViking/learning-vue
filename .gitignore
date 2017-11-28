@@ -20,3 +20,5 @@ node_modules/
 src/package-lock\.json
 
 src/public/js/welcome\.js
+
+src/yarn\.lock
