@@ -38,7 +38,12 @@
 
             <h2>Animations &amp; Transitions</h2>
             @include('learnvue-sections.transitions-and-animations.list-transitions')
+            @include('learnvue-sections.transitions-and-animations.state-transitions')
 
+
+            <h2>Reusability &amp; Composition</h2>
+            @include('learnvue-sections.reusability-and-composition.mixins')
+            
 
 
         </div>

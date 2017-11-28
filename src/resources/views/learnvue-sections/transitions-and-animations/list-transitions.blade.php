@@ -628,5 +628,24 @@ methods: {
         <reused-transition class="vue-component-root row" />
     </div>
 
+    <h4>Example with a Functional Component</h4>
+
+    <p class="lead">TODO</p>
+
+    <h3><a href="https://vuejs.org/v2/guide/transitions.html#Dynamic-Transitions">Dynamic Transitions</a></h3>
+
+    <p>Even transitions in Vue are data-driven. The most basic example binds the <code>name</code> attribute to a dynamic property.</p>
+
+    <pre>&lt;transition v-bind:name="transitionName"&gt;
+    ...
+&lt;/transition&gt;</pre>
+
+    <p>This is useful when CSS transitions/animations have been defined using Vue's transition class conventions and the goal is to switch between implementations.</p>
+
+    <p>Any transition attribute can be dynamically bound, and not only attributes but also event hooks. This allows transitions to access any data in the context.</p>
+
+    <div>
+        <dynamic-transition class="vue-component-root row" />
+    </div>
 
 </section>

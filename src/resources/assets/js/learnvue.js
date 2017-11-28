@@ -98,10 +98,16 @@ Vue.component('list-move-transitions', require('./learnvue-components/Transition
 Vue.component('list-moves-and-transitions', require('./learnvue-components/Transitions/ListMovesAndTransitions.vue'));
 Vue.component('staggered-list-transition', require('./learnvue-components/Transitions/StaggeredListTransitions.vue'));
 Vue.component('reused-transition', require('./learnvue-components/Transitions/ReusedTransitionRoot.vue'));
-
-
+Vue.component('dynamic-transition', require('./learnvue-components/Transitions/DynamicTransition.vue'));
 
 Vue.component('reusable-transition-template-component', require('./learnvue-components/Transitions/ReusableTransitionUsingTemplateComponent.vue'));
+
+
+
+//state transitions
+Vue.component('animated-state-with-watcher', require('./learnvue-components/State-Transitions/AnimatedStateWithWatcher.vue'));
+
+
 
 
 Vue.component('child', {
