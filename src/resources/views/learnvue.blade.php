@@ -43,6 +43,12 @@
 
             <h2>Reusability &amp; Composition</h2>
             @include('learnvue-sections.reusability-and-composition.mixins')
+            @include('learnvue-sections.reusability-and-composition.custom-directives')
+            
+            <h2>TODO: Tooling</h2>
+
+            <h2>Scaling Up</h2>
+
             
 
 

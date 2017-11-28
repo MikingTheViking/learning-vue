@@ -107,6 +107,9 @@ Vue.component('reusable-transition-template-component', require('./learnvue-comp
 //state transitions
 Vue.component('animated-state-with-watcher', require('./learnvue-components/State-Transitions/AnimatedStateWithWatcher.vue'));
 
+//reusability & composition
+Vue.component('custom-directive', require('./learnvue-components/Custom-Directives/AutofocusInput.vue'));
+Vue.component('directive-hook-arguments', require('./learnvue-components/Custom-Directives/CustomDirectiveHookArguments.vue'));
 
 
 
