@@ -19,7 +19,8 @@
         "lodash": "^4.17.4",
         "popper.js": "^1.12.9",
         "three": "^0.88.0",
-        "vue": "^2.5.2"
+        "vue": "^2.5.2",
+        "vuex": "^3.0.1"
     },
     "dependencies": {
         "@tweenjs/tween.js": "^17.1.1",

@@ -48,6 +48,10 @@
                     <a class="dropdown-item" href="{{ route('learnvue') }}">
                         Learn Vue
                     </a>
+                    <a class="dropdown-item" href="{{ route('learn-es2015') }}">
+                        Learn ES2015
+                    </a>
+
                 </div>
             </li>
 
