@@ -24,7 +24,7 @@
 
             <h1>ES2015 <small class="text-muted">A learning exercise with the Viking</small></h1>
 
-
+            
 
         </div>
         
