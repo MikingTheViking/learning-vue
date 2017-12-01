@@ -18,6 +18,20 @@ const hljs = require('highlight.js');
  */
 
 import Vue from 'vue';
+//import VueRouter from 'vue-router';
+
+
+//Vuex Shenanigans
+import 'babel-polyfill';
+import 'babel-polyfill'
+//import { getAllMessages } from './store/actions'
+import store from './store';
+import App from './learnvue-components/Routing/Home.vue';
+
+Vue.config.debug = true;
+
+
+//Vue.use(VueRouter);
 
 //Vue.component('category', require('./learnvue-components/Category.vue'));
 Vue.component('basicinstance', require('./learnvue-components/BasicInstance.vue'));
@@ -126,6 +140,12 @@ const app = new Vue({
     el: '#app'
 });
 
+const app2 = new Vue({
+    el: '#vuex-example',
+    store,
+    render: h => h(App)
+});
+
 
 
 
@@ -133,3 +153,5 @@ const app = new Vue({
 $('pre').each(function (i, block) {
     hljs.highlightBlock(block);
 });
+
+

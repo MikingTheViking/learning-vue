@@ -48,15 +48,19 @@
             <h2>TODO: Tooling</h2>
 
             <h2>Scaling Up</h2>
-            @include('learnvue-sections.scaling-up.routing')
+            @include('learnvue-sections.scaling-up.routing')            
             @include('learnvue-sections.scaling-up.state-management')
-            
-            
 
 
         </div>
         
         
+    </div>
+
+    <div class="container-fluid">
+    
+		<div id="vuex-example"></div>
+	
     </div>
 
     <!-- Scripts -->
