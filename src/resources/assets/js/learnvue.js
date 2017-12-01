@@ -135,10 +135,11 @@ Vue.component('child', {
     template: '<span>{{ myMessage }}</span>'
 
 });
-
+/*
 const app = new Vue({
     el: '#app'
 });
+*/
 
 const app2 = new Vue({
     el: '#vuex-example',
@@ -148,7 +149,252 @@ const app2 = new Vue({
 
 
 
+const basic = new Vue({
+    el: '#vue-basic-instance'
+});
 
+const data_bind = new Vue({
+    el: '#vue-data-bind'
+});
+
+const instance_methods = new Vue({
+    el: '#vue-instance-methods'
+});
+
+const text_interpolation = new Vue({
+    el: '#vue-text-interpolation'
+});
+
+const raw_html_interpolation = new Vue({
+    el: '#vue-raw-html-interpolation'
+});
+
+const attributes_interpolation = new Vue({
+    el: '#vue-attributes-interpolation'
+});
+
+const javascript_expressions_interpolation = new Vue({
+    el: '#vue-javascript-expressions-interpolation'
+});
+
+const directive_sample = new Vue({
+    el: '#vue-directive-sample'
+});
+
+const arguments_directive = new Vue({
+    el: '#vue-arguments-directive'
+});
+
+const modifiers_directive = new Vue({
+    el: '#vue-modifiers-directive'
+});
+
+const shorthand_directive = new Vue({
+    el: '#vue-shorthand-directive'
+});
+
+const computed_property_sample = new Vue({
+    el: '#vue-computed-property-sample'
+});
+
+const complex_watch = new Vue({
+    el: '#vue-complex-watch'
+});
+
+const object_syntax = new Vue({
+    el: '#vue-object-syntax-sample'
+});
+
+const array_syntax = new Vue({
+    el: '#vue-array-syntax-sample'
+});
+
+const conditional_rendering = new Vue({
+    el: '#vue-conditional-rendering-sample'
+});
+
+const conditional_rendering_key = new Vue({
+    el: '#vue-conditional-rendering-key-sample'
+});
+
+const for_basic = new Vue({
+    el: '#vue-for-basic-sample'
+});
+
+const for_basic_with_index = new Vue({
+    el: '#vue-for-basic-with-index'
+});
+
+const for_object_value_sample = new Vue({
+    el: '#vue-for-object-value-sample'
+});
+
+const for_object_key_value_sample = new Vue({
+    el: '#vue-for-object-key-value-sample'
+    
+});
+
+const for_object_index_key_value_sample = new Vue({
+    el: '#vue-for-object-index-key-value-sample'
+});
+
+const simple_todo = new Vue({
+    el: '#vue-simple-todo-list'
+});
+
+const simple_on_event = new Vue({
+    el: '#vue-simple-on-event'
+});
+
+const simple_on_event_method = new Vue({
+    el: '#vue-vue-simple-on-event-method'
+});
+
+const simple_inline = new Vue({
+    el: '#vue-simple-inline'
+});
+
+const simple_text_binding = new Vue({
+    el: '#vue-simple-text-binding'
+});
+
+const simple_textarea_binding = new Vue({
+    el: '#vue-simple-textarea-binding'
+});
+
+const simple_checkbox_single_binding = new Vue({
+    el: '#vue-simple-checkbox-single-binding'
+});
+
+const simple_checkbox_multiple_binding = new Vue({
+    el: '#vue-simple-checkbox-multiple-binding'
+});
+
+const radio_binding = new Vue({
+    el: '#vue-radio-binding'
+});
+
+const select_binding = new Vue({
+    el: '#vue-select-binding'
+});
+
+const checkbox_value_binding = new Vue({
+    el: '#vue-checkbox-value-binding'
+});
+
+const select_options_binding = new Vue({
+    el: '#vue-select-options-binding'
+});
+
+const lazy_modifier = new Vue({
+    el: '#vue-lazy-modifier'
+});
+
+const prop_simple = new Vue({
+    el: '#vue-prop-simple'
+});
+
+const dynamic_props = new Vue({
+    el: '#vue-dynamic-props'
+});
+
+const event_handling = new Vue({
+    el: '#vue-event-handling'
+});
+
+const currency_input = new Vue({
+     el: '#vue-currency-input-parent'
+});
+
+const currency_input_model = new Vue({
+    el: '#vue-currency-input-model-parent'
+});
+
+const basic_opacity = new Vue({
+    el: '#vue-basic-opacity'
+});
+
+const advanced_opacity = new Vue({
+    el: '#vue-advanced-opacity'
+});
+
+const basic_animation = new Vue({
+    el: '#vue-basic-animation'
+});
+
+const advanced_animation = new Vue({
+    el: '#vue-advanced-animation'
+});
+
+const javascript_hooks = new Vue({
+    el: '#vue-javascript-hooks'
+});
+
+const javascript_transition = new Vue({
+    el: '#vue-javascript-transition'
+});
+
+const transition_modes_none = new Vue({
+    el: '#vue-transition-modes-none'
+});
+
+const transition_modes_none_again = new Vue({
+    el: '#vue-transition-modes-none-again'
+});
+
+const transition_modes = new Vue({
+    el: '#vue-transition-modes'
+});
+
+const component_transition = new Vue({
+    el: '#vue-component-transition'
+});
+
+const list_transition = new Vue({ el: '#vue-list-transition'});
+
+const list_move_transition = new Vue({
+    el: '#vue-list-move-transitions'
+});
+
+const list_move_transition_with_vuex = new Vue({
+    el: '#vue-list-move-transitions-with-vuex', store
+});
+
+const list_moves_and_transitions = new Vue({ el: '#vue-list-moves-and-transitions'});
+
+const staggered_list_transition = new Vue({ el: '#vue-staggered-list-transition' });
+
+const reused_transition = new Vue({ el: '#vue-reused-transition' });
+
+const dynamic_transition = new Vue({ el: '#vue-dynamic-transition'});
+
+const animated_state_with_watcher = new Vue({ el: '#vue-animated-state-with-watcher'});
+
+const custom_directive = new Vue({ el: '#vue-custom-directive'});
+
+const directive_hook_arguments = new Vue({ el: '#vue-directive-hook-arguments'});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Highlight.js for code samples styling
 
 $('pre').each(function (i, block) {
     hljs.highlightBlock(block);

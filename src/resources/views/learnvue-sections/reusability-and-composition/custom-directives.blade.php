@@ -36,7 +36,7 @@ directives: {
 
     <p>In the template use the new <code>v-focus</code> attribute on any element, such as the component below. On page load that component will have focus.</p>
 
-    <div>
+    <div id="vue-custom-directive">
         <custom-directive class="vue-component-root row"/>
     </div>
 
@@ -107,7 +107,7 @@ new Vue({
   }
 })</pre>
 
-    <div>
+    <div id="vue-directive-hook-arguments">
         <directive-hook-arguments class="vue-component-root row" />
     </div>
 

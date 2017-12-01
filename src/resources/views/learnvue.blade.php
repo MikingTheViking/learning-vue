@@ -57,12 +57,6 @@
         
     </div>
 
-    <div class="container-fluid">
-    
-		<div id="vuex-example"></div>
-	
-    </div>
-
     <!-- Scripts -->
     <script src="{{ asset('js/learnvue.js') }}"></script>
 

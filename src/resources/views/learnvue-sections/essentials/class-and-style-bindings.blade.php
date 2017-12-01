@@ -9,13 +9,13 @@
 
     <p>Passing an object to <code>v-bind:class</code> allows for dynamic toggling of classes.</p>
 
-    <div>
+    <div id="vue-object-syntax-sample">
         <object-syntax-sample class="vue-component-root row" />
     </div>
 
     <h4><a href="https://vuejs.org/v2/guide/class-and-style.html#Array-Syntax">Array Syntax</a></h4>
 
-    <div>
+    <div id="vue-array-syntax-sample">
         <array-syntax-sample class="vue-component-root row" />
     </div>
 

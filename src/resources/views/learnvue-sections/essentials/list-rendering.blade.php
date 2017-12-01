@@ -19,7 +19,7 @@ data: {
     ]   
 }</pre>
 
-    <div>
+    <div id="vue-for-basic-sample">
         <for-basic-sample class="vue-component-root row" />
     </div>
 
@@ -39,7 +39,7 @@ data: {
     ]   
 }</pre>
 
-    <div>
+    <div id="vue-for-basic-with-index">
         <for-basic-with-index-sample class="vue-component-root row" />
     </div>
 
@@ -61,20 +61,20 @@ data: {
     }
 }</pre>
 
-    <div>
+    <div id="vue-for-object-value-sample">
         <for-object-value-sample class="vue-component-root row" />
     </div>
 
     <p>A second argument can be provided for the key:</p>
 
 
-    <div>
+    <div id="vue-for-object-key-value-sample">
         <for-object-key-value-sample class="vue-component-root row" />
     </div>
     
     <p>A third argument can be provided  for the index:</p>
 
-    <div>
+    <div id="vue-for-object-index-key-value-sample">
         <for-object-index-key-value-sample class="vue-component-root row" />
     </div>
 
@@ -255,7 +255,7 @@ methods: {
 /&gt;</pre>
 
 
-    <div>
+    <div id="vue-simple-todo-list">
         <simple-todo-list class="vue-component-root row" />
     </div>
 

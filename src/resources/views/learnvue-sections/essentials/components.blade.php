@@ -86,7 +86,7 @@ props: [
 
 <pre>&lt;child-component prop1="some data being passed" /&gt;</pre>
 
-    <div>
+    <div id="vue-prop-simple">
         <prop-simple class="vue-component-root row" message="This is the message passed via the custom component's props." />
     </div>
 
@@ -110,7 +110,7 @@ props: ['myMessage']</pre>
     &lt;child :my-message="parentMsg" /&gt;
 &lt;/div&gt;</pre>
 
-    <div>
+    <div id="vue-dynamic-props">
         <dynamic-props class="vue-component-root row" />
     </div>
 
@@ -270,7 +270,7 @@ computed: {
     <p><strong>Note:</strong> <code>$on</code> cannot be used to listen to event emitted by children, for this use <code>v-on</code> directly in the template:</p>
 
 
-    <div>
+    <div id="vue-event-handling">
         <event-handling class="vue-component-root row" />
     </div>
 
@@ -321,13 +321,13 @@ computed: {
         <li>emit an <code>input</code> event with a new value</li>
     </ul>
 
-    <div>
+    <div id="vue-currency-input-parent">
         <currency-input-parent class="vue-component-root row" />
     </div>
 
     <p>A more complete example is below:</p>
 
-    <div>
+    <div id="vue-currency-input-model-parent">
         <currency-input-model-parent class="vue-component-root row" />
     </div>
 

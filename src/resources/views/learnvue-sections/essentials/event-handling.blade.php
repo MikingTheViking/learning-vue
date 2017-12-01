@@ -5,7 +5,7 @@
 
     <p>Use the <code>v-on</code> directive to listen to DOM events and execute JavaScript when triggered.</p>
 
-    <div>
+    <div id="vue-simple-on-event">
         <simple-on-event class="vue-component-root row" />
     </div>
 
@@ -14,7 +14,7 @@
 
     <p>Logic for many event handlers is more complex, making it not feasible to keep the value of the <code>v-on</code> attribute. Hence, <code>v-on</code> can also accept the name of a method.</p>
 
-    <div>
+    <div id="vue-simple-on-event-method">
         <simple-on-event-method class="vue-component-root row" />
     </div>
 
@@ -23,7 +23,7 @@
 
     <p>Alternatively instead of binding directly to a method name, we can also use methods in an inline JavaScript statement:</p>
 
-    <div>
+    <div id="vue-simple-inline">
         <simple-inline class="vue-component-root row" />
     </div>
 

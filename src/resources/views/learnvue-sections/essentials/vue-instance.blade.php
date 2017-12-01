@@ -6,7 +6,10 @@
         <pre>var vm = new Vue({
     //options
 });</pre>
-        <basicinstance class="vue-component-root row"></basicinstance>
+        <div id="vue-basic-instance">
+            <basicinstance class="vue-component-root row"></basicinstance>
+        </div>
+        
     </div>
     <h3><a href="https://vuejs.org/v2/guide/instance.html#Data-and-Methods">Vue Instance Data and Methods</a></h3>
     <div class="col-sm-12">
@@ -18,7 +21,10 @@ var vm = new Vue({
     data:data
 });</pre>
     <p><b>Note:</b> only the properties that are present in <code>data</code> when the Vue instance was initialized will be <b>reactive</b>. Hence if a property is needed at a later time, some initial value must be set.</p>
-    <databindsample class="vue-component-root row"></databindsample>
+
+    <div id="vue-data-bind">
+        <databindsample class="vue-component-root row"></databindsample>
+    </div> 
 
     <hr>
     <p>Vue instances also expose some useful instance properties and methods which are prefixed by <code>$</code> to differentiate from user-defined properties. An example of a useful instance method is <code>watch</code>.</p>
@@ -38,7 +44,9 @@ watch: {
         //function content here
     }
 }</pre>
-    <instancemethods class="vue-component-root row"></instancemethods>
+        <div id="vue-instance-methods">
+            <instancemethods class="vue-component-root row"></instancemethods>
+        </div>
     </div>
     <h3><a href="https://vuejs.org/v2/guide/instance.html#Instance-Lifecycle-Hooks">Vue Instance Lifecycle Hooks</a></h3>
     <div class="col-sm-12">
