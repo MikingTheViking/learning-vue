@@ -942,7 +942,7 @@ store.registerModule(['nested', 'myModule'], {
         ├── cart.js       # cart module
         └── products.js   # products module</pre>
 
-  <div id="#vue-list-move-transitions-with-vuex">
+  <div id="vue-list-move-transitions-with-vuex">
     
   </div>
 

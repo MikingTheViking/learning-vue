@@ -3,13 +3,14 @@ import Vuex from 'vuex'
 import * as getters from './getters'
 import * as actions from './actions'
 import mutations from './mutations'
+import listmovetransition from './modules/listmovestore.js'
 //import module1 from './modules/module1.js'
 //import createLogger from '../../../src/plugins/logger'    from example
 
 Vue.use(Vuex)
 
 const state = {
-    test: true
+    test: true,
   //currentThreadID: null,
   //threads: {
     /*
@@ -41,6 +42,9 @@ export default new Vuex.Store({
   getters,
   actions,
   mutations,
+  modules: {
+    listmovetransition
+  }
   //modules: {
   //  module1
   //}

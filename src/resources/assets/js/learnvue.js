@@ -27,6 +27,7 @@ import 'babel-polyfill'
 //import { getAllMessages } from './store/actions'
 import store from './store';
 import App from './learnvue-components/Routing/Home.vue';
+import ListTransition from './learnvue-components/Transitions/ListMoveTransitionsWithVuex';
 
 Vue.config.debug = true;
 
@@ -124,6 +125,9 @@ Vue.component('animated-state-with-watcher', require('./learnvue-components/Stat
 //reusability & composition
 Vue.component('custom-directive', require('./learnvue-components/Custom-Directives/AutofocusInput.vue'));
 Vue.component('directive-hook-arguments', require('./learnvue-components/Custom-Directives/CustomDirectiveHookArguments.vue'));
+
+
+//vuex
 
 
 
@@ -247,7 +251,7 @@ const simple_on_event = new Vue({
 });
 
 const simple_on_event_method = new Vue({
-    el: '#vue-vue-simple-on-event-method'
+    el: '#vue-simple-on-event-method'
 });
 
 const simple_inline = new Vue({
@@ -357,7 +361,9 @@ const list_move_transition = new Vue({
 });
 
 const list_move_transition_with_vuex = new Vue({
-    el: '#vue-list-move-transitions-with-vuex', store
+    el: '#vue-list-move-transitions-with-vuex', 
+    store,
+    render: h => h(ListTransition)
 });
 
 const list_moves_and_transitions = new Vue({ el: '#vue-list-moves-and-transitions'});
@@ -373,8 +379,6 @@ const animated_state_with_watcher = new Vue({ el: '#vue-animated-state-with-watc
 const custom_directive = new Vue({ el: '#vue-custom-directive'});
 
 const directive_hook_arguments = new Vue({ el: '#vue-directive-hook-arguments'});
-
-
 
 
 

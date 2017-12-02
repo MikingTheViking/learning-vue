@@ -46,7 +46,7 @@
 
                     <h4><a href="https://vuejs.org/v2/guide/syntax.html#Arguments">Arguments</a></h4>
 
-                    <div id="vue-arguments-drective">
+                    <div id="vue-arguments-directive">
                         <arguments-directive class="vue-component-root row" />
                     </div>
 
