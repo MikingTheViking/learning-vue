@@ -13,3 +13,6 @@ export const SET_LIST_MOVE_ARRAY = 'SET_LIST_MOVE_ARRAY'
 export const TOGGLE_NAV = 'TOGGLE_NAV';
 export const TOGGLE_NAV_ON = 'TOGGLE_NAV_ON';
 export const TOGGLE_NAV_OFF = 'TOGGLE_NAV_OFF';
+
+//CONTENT
+export const SET_CONTENT = 'SET_CONTENT';

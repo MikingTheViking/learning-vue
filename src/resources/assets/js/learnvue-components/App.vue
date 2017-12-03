@@ -8,10 +8,15 @@
                 tag="div"
                 class="row"
             >
-                <div v-if="navOpen" class="col-2" id="app-content-nav" key="nav">
+                <div v-if="navOpen" class="col-4" id="app-content-nav" key="nav">
                     <p>Root router path: {{ $route.fullPath }}</p>
                     <ul class="nav flex-column">
                         <li class="nav-item"><router-link class="nav-link" to="/learnvue/app/home"><button class="btn btn-outline-primary">/home</button></router-link></li>
+                        <li class="nav-item"><router-link class="nav-link" to="/learnvue/app/what-is-it"><button class="btn btn-outline-primary">/what-is-it</button></router-link></li>
+                        <li class="nav-item"><router-link class="nav-link" to="/learnvue/app/vue-instance"><button class="btn btn-outline-primary">/vue-instance</button></router-link></li>
+                        <li class="nav-item"><router-link class="nav-link" to="/learnvue/app/template-syntax"><button class="btn btn-outline-primary">/template-syntax</button></router-link></li>
+                        <li class="nav-item"><router-link class="nav-link" to="/learnvue/app/computed-properties-and-watchers"><button class="btn btn-outline-primary">/computed-properties-and-watchers</button></router-link></li>
+                        <li class="separator"></li>
                         <li class="nav-item"><router-link class="nav-link" to="/learnvue/app/foo"><button class="btn btn-outline-primary">/foo</button></router-link></li>
                         <li class="nav-item"><router-link class="nav-link" to="/learnvue/app/bar"><button class="btn btn-outline-primary">/bar</button></router-link></li>
                     </ul>
@@ -59,5 +64,4 @@ export default {
         left:-100%;
     }
     
-
 </style>

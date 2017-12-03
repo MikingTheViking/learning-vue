@@ -31,11 +31,18 @@ class LearnVueController extends Controller
      */
     public function api($route = null) {
 
-        //return 'hi ' . $route;
-        //return view('learnvue-sections.essentials.what-is-it');
-        return view('learnvue-sections.essentials.vue-instance');
-
-
+        switch ($route) {
+            case 'what-is-it': 
+                return view('learnvue-sections.essentials.what-is-it');
+            case 'vue-instance':
+                return view('learnvue-sections.essentials.vue-instance');
+            case 'template-syntax':
+                return view('learnvue-sections.essentials.template-syntax');
+            case 'computed-properties-and-watchers';
+                return view('learnvue-sections.essentials.computed-properties-and-watchers');
+            default:
+                return view('learnvue-sections.essentials.vue-instance');
+        }
     }
 
 
