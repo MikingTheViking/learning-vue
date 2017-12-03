@@ -17,6 +17,7 @@
 </head>
 <body>
     @include('inclusions.navbar')
+    <div class="container-fluid" id="router-app"></div>
     <div id="app">
         
         <div class="container-fluid">
