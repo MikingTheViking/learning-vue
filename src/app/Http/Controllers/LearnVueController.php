@@ -32,7 +32,8 @@ class LearnVueController extends Controller
     public function api($route = null) {
 
         //return 'hi ' . $route;
-        return view('learnvue-sections.essentials.what-is-it');
+        //return view('learnvue-sections.essentials.what-is-it');
+        return view('learnvue-sections.essentials.vue-instance');
 
 
     }

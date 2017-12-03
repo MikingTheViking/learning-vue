@@ -1,8 +1,5 @@
 <template>
-    <div class="container-fluid">
-        <p>Dynamic Category Component {{$route.params.route}}</p>
-        <div class="row" v-show="content" v-html="content">
-        </div>
+    <div class="container-fluid" v-html="content">
     </div>
     
 
