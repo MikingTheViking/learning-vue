@@ -572,7 +572,7 @@ store.dispatch({
 
 	<h5>Dispatching Actions in Components</h5>
 
-	<p>Actions in components can be dispatched with <code>this.$store.dispatch('xxx')</code> or by using the <code>mapActions</code> helper which maps component methods to <code>store.dispatch</code> calls (requires the root <ode>store</code> injection):</p>
+	<p>Actions in components can be dispatched with <code>this.$store.dispatch('xxx')</code> or by using the <code>mapActions</code> helper which maps component methods to <code>store.dispatch</code> calls (requires the root <code>store</code> injection):</p>
 
 	<pre>import { mapActions } from 'vuex'
 
@@ -686,7 +686,265 @@ store.state.b // -> `moduleB`'s state</pre>
   }
 }</pre>
 
-	<p>Inside module actions, <code>context.state</code>
+	<p>Inside module actions, <code>context.state</code> will expose the local state, and root state will be exposed as <code>context.rootState</code>:</p>
+
+  <pre>const moduleA = {
+  // ...
+  actions: {
+    incrementIfOddOnRootSum ({ state, commit, rootState }) {
+      if ((state.count + rootState.count) % 2 === 1) {
+        commit('increment')
+      }
+    }
+  }
+}</pre>
 
 
+    <p>Inside module getters, the root state will be exposed as their 3rd argument:</p>
+
+    <pre>const moduleA = {
+  // ...
+  getters: {
+    sumWithRootCount (state, getters, rootState) {
+      return state.count + rootState.count
+    }
+  }
+}</pre>
+
+  <h5>Namespacing</h5>
+
+  <p>By default, actions, mutations, and getters inside modules are still registered under the <strong>global namespace</strong> allowing multiple modules to react to the same mutation/action type.</p>
+
+  <p>To havea  module be more self-contained or re-usable, it can be marked as namespaced with <code>namespaced:true</code>. When the module is registered, all of its getters, actions, and mutations will be automatically namespaced based on the path the module is registered at.</p>
+
+  <pre>const store = new Vuex.Store({
+  modules: {
+    account: {
+      namespaced: true,
+
+      // module assets
+      state: { ... }, // module state is already nested and not affected by namespace option
+      getters: {
+        isAdmin () { ... } // -> getters['account/isAdmin']
+      },
+      actions: {
+        login () { ... } // -> dispatch('account/login')
+      },
+      mutations: {
+        login () { ... } // -> commit('account/login')
+      },
+
+      // nested modules
+      modules: {
+        // inherits the namespace from parent module
+        myPage: {
+          state: { ... },
+          getters: {
+            profile () { ... } // -> getters['account/profile']
+          }
+        },
+
+        // further nest the namespace
+        posts: {
+          namespaced: true,
+
+          state: { ... },
+          getters: {
+            popular () { ... } // -> getters['account/posts/popular']
+          }
+        }
+      }
+    }
+  }
+})</pre>
+
+  <p>Namespaced getters and actions receive localized <code>getters</code>, <code>dispatch</code>, and <code>commit</code>. The module assets can be used without writing prefix in the same module. Toggling between namespaced or not does not affect the code inside the module.</p>
+
+  <h5>Accessing Global Assets in Namespaced Modules</h5>
+
+  <p>To access global state and getters, <code>rootState</code> and <code>rootGetters</code> are passed as the 3rd and 4th arguments to getter functions, and also exposed as propeties on the <code>context</code> object passed to action functions.</p>
+
+  <p>To dispatch actions or commit mutations in the global namespace, pass <code>{root: true}</code> as the 3rd argument to <code>dispatch</code> and <code>commit</code>.</p>
+
+  <pre>modules: {
+  foo: {
+    namespaced: true,
+
+    getters: {
+      // `getters` is localized to this module's getters
+      // you can use rootGetters via 4th argument of getters
+      someGetter (state, getters, rootState, rootGetters) {
+        getters.someOtherGetter // -> 'foo/someOtherGetter'
+        rootGetters.someOtherGetter // -> 'someOtherGetter'
+      },
+      someOtherGetter: state => { ... }
+    },
+
+    actions: {
+      // dispatch and commit are also localized for this module
+      // they will accept `root` option for the root dispatch/commit
+      someAction ({ dispatch, commit, getters, rootGetters }) {
+        getters.someGetter // -> 'foo/someGetter'
+        rootGetters.someGetter // -> 'someGetter'
+
+        dispatch('someOtherAction') // -> 'foo/someOtherAction'
+        dispatch('someOtherAction', null, { root: true }) // -> 'someOtherAction'
+
+        commit('someMutation') // -> 'foo/someMutation'
+        commit('someMutation', null, { root: true }) // -> 'someMutation'
+      },
+      someOtherAction (ctx, payload) { ... }
+    }
+  }
+}</pre>
+
+
+  <h5>Binding Helpers with Namespace</h5>
+
+  <p>When binding a namespaced module to components with the <code>mapState</code>, <code>mapGetters</code>, <code>mapActions</code>, and <code>mapMutations</code> helpers, it can get a bit verbose:</p>
+
+  <pre>computed: {
+  ...mapState({
+    a: state => state.some.nested.module.a,
+    b: state => state.some.nested.module.b
+  })
+},
+methods: {
+  ...mapActions([
+    'some/nested/module/foo',
+    'some/nested/module/bar'
+  ])
+}</pre>
+
+  <p>In such cases, pass the module namespace string as the first argument to the helpers so that all bindings are done using that module as the context. It can be simplified to:</p>
+
+  <pre>computed: {
+  ...mapState('some/nested/module', {
+    a: state => state.a,
+    b: state => state.b
+  })
+},
+methods: {
+  ...mapActions('some/nested/module', [
+    'foo',
+    'bar'
+  ])
+}</pre>
+
+  <p>Furthermore, namespaced helpers can be created by using <code>createNamespacedHelpers</code>. It returns an object having new component binding helpers that are bound with the given namespace value:</p>
+
+  <pre>import { createNamespacedHelpers } from 'vuex'
+
+const { mapState, mapActions } = createNamespacedHelpers('some/nested/module')
+
+export default {
+  computed: {
+    // look up in `some/nested/module`
+    ...mapState({
+      a: state => state.a,
+      b: state => state.b
+    })
+  },
+  methods: {
+    // look up in `some/nested/module`
+    ...mapActions([
+      'foo',
+      'bar'
+    ])
+  }
+}</pre>
+
+  <h5>Caveat for Plugin Developers</h5>
+
+  <p>Plugin developers may need to receive a namespace value via the plugin option in order to accomodate user namespaces.</p>
+
+  <pre>// get namespace value via plugin option
+// and returns Vuex plugin function
+export function createPlugin (options = {}) {
+  return function (store) {
+    // add namespace to plugin module's types
+    const namespace = options.namespace || ''
+    store.dispatch(namespace + 'pluginAction')
+  }
+}</pre>
+
+  <h5>Dynamic Module Registration</h5>
+
+  <p>A module can be registered <strong>after</strong> the store has been created with the <code>store.registerModule</code> method:</p>
+
+  <pre>// register a module `myModule`
+store.registerModule('myModule', {
+  // ...
+})
+
+// register a nested module `nested/myModule`
+store.registerModule(['nested', 'myModule'], {
+  // ...
+})</pre>
+
+  <p>The module's state will be exposed as <code>store.state.myModule</code> and <code>store.state.nested.myModule</code>.</p>
+
+  <p>Dynamic module registrration makes it possible for other Vue plugins to also leverage Vuex for state management by attaching a module to the application's store. For example, the <code>vuex-router-sync</code> library integrates vue-router with vuex by managing the application's route state in a dynamically attached module.</p>
+
+  <p>Modules can also be dynamically removed after registration with <code>store.unregisterModule(moduleName)</code>. <strong>Note:</strong> static moules cannot be removed (declared at store creation) with this method.</p>
+
+  <p>To preserve the previous sate when registering a new module, use the <code>preserveState</code> option:</p>
+
+  <pre>store.registerModule('a', module, { preserveState: true })</pre>
+
+  <h5>Module Reuse</h5>
+
+  <p>Sometimes there is a need to create multiple instances of a module, for instance:</p>
+
+  <ul>
+    <li>Creating multiple stores that use the same module (avoiding stateful singletons in the SSR when the <code>runInNewContext</code> option is <code>false</code> or <code>'once'</code>)</li>
+    <li>Register the same module multiple times in the same store</li>
+  </ul>
+
+  <p>If a plain object is used to declare the state of the module, then the state object will be shared by reference and cause cross store/module state pollution when mutated.</p>
+
+  <p>The same problem exists with <code>data</code> in Vue components. The solution is also the same: use a function for declaring module state:</p>
+
+  <pre>const MyReusableModule = {
+  state () {
+    return {
+      foo: 'bar'
+    }
+  },
+  // mutations, actions, getters...
+}</pre>
+
+  <h4><a href="https://vuex.vuejs.org/en/structure.html">Applications Structure</a></h4>
+
+  <p>Vuex doesn't restrict how code is structured, it enforces a set of high-level principles:</p>
+  <div class="alert alert-light">
+    <p class="lead">1. Application-level state is centralized in the store</p>
+
+    <p class="lead">2. The only way to mutate the state is by committing <strong>mutations</strong>, which are synchronous transactions</p>
+
+    <p class="lead">3. Asynchronous logic should be encapsulated in, and can be composed with <strong>actions</strong></p>
+  </div>
+
+	<p>An example structure for a non-trivial app leveraging modules:</p>
+
+	<pre>├── index.html
+├── main.js
+├── api
+│   └── ... # abstractions for making API requests
+├── components
+│   ├── App.vue
+│   └── ...
+└── store
+    ├── index.js          # where we assemble modules and export the store
+    ├── actions.js        # root actions
+    ├── mutations.js      # root mutations
+    └── modules
+        ├── cart.js       # cart module
+        └── products.js   # products module</pre>
+
+  <div id="vue-list-move-transitions-with-vuex">
+    
+  </div>
+
+	
 </section>

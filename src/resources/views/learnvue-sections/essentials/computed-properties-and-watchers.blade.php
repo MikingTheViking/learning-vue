@@ -5,7 +5,7 @@
 
     <p>Computed properties are dependant on other properties, Vue is aware of this and when a change occurs to the data property, the computed property will also be updated.</p>
 
-    <div>
+    <div id="vue-computed-property-sample">
         <computed-property-sample class="vue-component-root row" />
     </div>
 
@@ -46,7 +46,7 @@ computed: {
 
     <p><code>watch</code> is best used for asynchronous or expensive operations in response to changed data.</p>
 
-    <div>
+    <div id="vue-complex-watch">
         <complex-watch class="root-vue-component root" />
     </div>
 

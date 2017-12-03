@@ -12,7 +12,7 @@
     <pre>&lt;input v-model="message" placeholder="edit me" /&gt;
 &lt;p&gt;Message is: {<span style="width:0px"></span>{ message }}&lt;/p&gt;</pre>
 
-    <div>
+    <div id="vue-simple-text-binding">
         <simple-text-binding class="vue-component-root row" />
     </div>
 
@@ -22,7 +22,7 @@
 
     <pre>&lt;textarea v-model="message" placeholder="add multiple lines"&gt;&lt;/textarea&gt;</pre>
 
-    <div>
+    <div id="vue-simple-textarea-binding">
         <simple-textarea-binding class="vue-component-root row" />
     </div>
 
@@ -35,25 +35,25 @@
     <pre>&lt;input type="checkbox" id="checkbox" v-model="checked" /&gt;
 &lt;label for="checkbox"&gt;{<span style="width:0px"></span>{ checked }}&lt;/label&gt;</pre>
 
-    <div>
+    <div id="vue-simple-checkbox-single-binding">
         <simple-checkbox-single-binding class="vue-component-root row" />
     </div>
 
     <p>Multiple checkboxes can be bound to the same array.</p>
 
-    <div>
+    <div id="vue-simple-checkbox-multiple-binding">
         <simple-checkbox-multiple-binding class="vue-component-root row" />
     </div>
 
     <h4><a href="https://vuejs.org/v2/guide/forms.html#Radio">Radio</a></h4>
 
-    <div>
+    <div id="vue-radio-binding">
         <radio-binding class="vue-component-root row" />
     </div>
 
     <h4><a href="https://vuejs.org/v2/guide/forms.html#Select">Select</a></h4>
 
-    <div>
+    <div id="vue-select-binding">
         <select-binding class="vue-component-root row" />
     </div>
 
@@ -101,7 +101,7 @@
 
     <p>When checked, <code>vm.toggle == vm.a</code>. When unchecked, <code>vm.toggle == vm.b</code></p>
 
-    <div>
+    <div id="vue-checkbox-value-binding">
         <checkbox-value-binding class="vue-component-root row" />
     </div>
 
@@ -112,7 +112,7 @@
 &lt;/select&gt;</pre>
 
 
-    <div>
+    <div id="vue-select-options-binding">
         <select-options-binding class="vue-component-root row" />
     </div>
 
@@ -123,7 +123,7 @@
 
     <p><code>v-model</code> syncs the input with the data after each <code>input</code> event by default. Add a <code>.lazy</code> modifier to instead sync after <code>change</code> events.</p>
 
-    <div>
+    <div id="vue-lazy-modifier">
         <lazy-modifier class="vue-component-root row" />
     </div>
 

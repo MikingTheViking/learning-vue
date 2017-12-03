@@ -11,7 +11,7 @@ data: {
 </pre>
         <p>Which will render: <code>&lt;div class="active text-danger"&gt;&lt;/div&gt;</code></p>
 
-        <p>To togle a class in the list conditionally, use a ternary expression.</p>
+        <p>To toggle a class in the list conditionally, use a ternary expression.</p>
 
         <p><code>&lt;div v-bind:class="[isActive ? activeClass : '', errorClass]"&gt;&lt;/div&gt;</code></p>
 

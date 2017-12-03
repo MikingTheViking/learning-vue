@@ -63,7 +63,7 @@
 
     <p>Switching the <code>loginType</code> in the code above will not erase the values already entered since both template use the same elements, only the <code>placeholder</code>.</p>
 
-    <div>
+    <div id="vue-conditional-rendering-sample">
         <conditional-rendering-sample class="vue-component-root row" />
     </div>
     
@@ -79,7 +79,7 @@
 &lt;/template&gt;
 </pre>
 
-    <div>
+    <div id="vue-conditional-rendering-key-sample">
         <conditional-rendering-key-sample class="vue-component-root row" />
     </div>
 

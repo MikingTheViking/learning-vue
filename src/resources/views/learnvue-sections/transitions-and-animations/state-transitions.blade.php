@@ -14,7 +14,7 @@
 
     <p>Watchers are used to animate changes of any numerical property into another property. The example below uses Tween.js to animate a number change.</p>
 
-    <div>
+    <div id="vue-animated-state-with-watcher">
         <animated-state-with-watcher class="vue-component-root row" />
     </div>
 

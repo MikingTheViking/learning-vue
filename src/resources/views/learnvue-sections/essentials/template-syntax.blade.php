@@ -14,24 +14,24 @@
                     <p>Interpolations are comprised of data binding using <em>Mustache syntax</em> (<code>{<span style="width:0px"> </span>{ someVarOrLogic }<span style="width:0px"> </span>}</code>) and Vue directives (<code>&lt;div v-html="rawHTML"&gt;&lt;/div&gt;</code>).</p>
 
                     <h4>Text</h4>
-                    <div>
+                    <div id="vue-text-interpolation">
                         <text-interpolation class="vue-component-root row" />
                     </div>
 
                     <h4>Raw (Unescaped) HTML</h4>
-                    <div>
+                    <div id="vue-raw-html-interpolation">
                         <raw-html-interpolation class="vue-component-root row" />
                     </div>
 
                     <h4>Attributes</h4>
-                    <div>
+                    <div id="vue-attributes-interpolation">
                         <attributes-interpolation class="vue-component-root row" />
                     </div>
 
                     <h4>JavaScript Expressions</h4>
-                    <div>
-                    <javascript-expressions-interpolation class="vue-component-root row" />
-                    </div>
+                    <div id="vue-javascript-expressions-interpolation">
+                        <javascript-expressions-interpolation class="vue-component-root row" />
+                    </di>
 
 
                 </div>
@@ -40,19 +40,19 @@
                     <h3><a href="https://vuejs.org/v2/guide/syntax.html#Directives">Directives</a></h3>
 
                     <p>Directives are special attributes with the <code>v-</code> prefix. Directive attributes are expected to be a <strong>single JavaScript expression</strong> (with the exception of <code>v-for</code>). The purpose of a directive is to reactively apply side effects to the DOM when the value of its expression changes.</p>
-                    <div>
+                    <div id="vue-directive-sample">
                         <directive-sample class="vue-component-root row" />
                     </div>
 
                     <h4><a href="https://vuejs.org/v2/guide/syntax.html#Arguments">Arguments</a></h4>
 
-                    <div>
+                    <div id="vue-arguments-directive">
                         <arguments-directive class="vue-component-root row" />
                     </div>
 
                     <h4><a href="https://vuejs.org/v2/guide/syntax.html#Modifiers">Modifiers</a></h4>
 
-                    <div>
+                    <div id="vue-modifiers-directive">
                         <modifiers-directive class="vue-component-root row" />
                     </div>
                 </div>
@@ -63,7 +63,7 @@
 
                     <p>The <code>v-</code> prefix is a cue for identifying Vue-specific attributes in a template. However this can get verbose for frequently used directives. For this reason there are special shorthands for <code>v-bind</code> and <code>v-on</code>, which are <code>:</code> and <code>@</code> respectively.</p>
 
-                    <div>
+                    <div id="vue-shorthand-directive">
                         <shorthand-directive class="vue-component-root row" />
                     </div>
 

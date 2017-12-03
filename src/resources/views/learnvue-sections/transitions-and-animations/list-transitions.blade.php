@@ -39,7 +39,7 @@
     opacity:0;
 }</pre>
 
-    <div>
+    <div id="vue-basic-opacity">
         <basic-opacity class="vue-component-root row" />
     </div>
 
@@ -104,7 +104,7 @@
   opacity: 0;
 }</pre>
 
-    <div>
+    <div id="vue-advanced-opacity">
         <advanced-opacity class="vue-component-root row" />
     </div>
 
@@ -137,7 +137,7 @@
   }
 }</pre>
 
-    <div>
+    <div id="vue-basic-animation">
         <basic-animation class="vue-component-root row" />
     </div>
 
@@ -155,7 +155,7 @@
     </ul>
 
 
-    <div>
+    <div id="vue-advanced-animation">
         <advanced-animation class="vue-component-root row" />
     </div>
 
@@ -237,7 +237,7 @@ methods: {
   }
 }</pre>
 
-    <div>
+    <div id="vue-javascript-hooks">
         <javascript-hooks class="vue-component-root row" />
     </div>
 
@@ -292,7 +292,7 @@ methods: {
     }
 }</pre>
 
-	<div>
+	<div id="vue-javascript-transition">
 		<javascript-transition class="vue-component-root row" />
 	</div>
 
@@ -379,13 +379,13 @@ computed: {
 
 	<p>A problem that can be typically run into is when mutliple components enter and leave simultaneously. Try clicking the button below, you'll notice that there is a state where both buttons exist; one is transitioning in while the other is simultaneously transitioning out.</p>
 
-	<div>
+	<div id="vue-transition-modes-none">
 		<transition-modes-none class="vue-component-root row" />
 	</div>
 
 	<p>If the components are style correctly, this can work as a slide transition or replacement:</p>
 
-	<div>
+	<div id="vue-transition-modes-none-again">
 		<transition-modes-none-again class="vue-component-root row" />
 	</div>
 
@@ -398,7 +398,7 @@ computed: {
 		<dd>Current element transitions out first, then when complete the new element transitions in.</dd>
 	</dl>
 
-	<div>
+	<div id="vue-transition-modes">
 		<transition-modes class="vue-component-root row" />
 	</div>
 
@@ -433,7 +433,7 @@ components: {
   opacity: 0;
 }</pre>
 
-	<div>
+	<div id="vue-component-transition">
 		<component-transition class="vue-component-root row" />
 	</div>
 
@@ -494,7 +494,7 @@ methods: {
   transform: translateY(30px);
 }</pre>
 
-	<div>
+	<div id="vue-list-transition">
 		<list-transitions class="vue-component-root row" />
 	</div>
 
@@ -529,13 +529,13 @@ methods: {
 }</pre>
 
 
-	<div>
+	<div id="vue-list-move-transitions">
 		<list-move-transitions class="vue-component-root row" />
 	</div>
 
 	<p>Combining both of the previous examples makes for pretty smooth list manipulations and transitions. This may seem magical, but under the hood Vue is using an anmiation technique called FLIP.</p>
 
-	<div>
+	<div id="vue-list-moves-and-transitions">
 		<list-moves-and-transitions class="vue-component-root row" />
 	</div>
 
@@ -616,7 +616,7 @@ methods: {
     }   
 }</pre>
 
-    <div>
+    <div id="vue-staggered-list-transition">
         <staggered-list-transition class="vue-component-root row" />
     </div>
 
@@ -626,7 +626,7 @@ methods: {
 
     <h4>Example with a Template Component</h4>
 
-    <div>
+    <div id="vue-reused-transition">
         <reused-transition class="vue-component-root row" />
     </div>
 
@@ -646,7 +646,7 @@ methods: {
 
     <p>Any transition attribute can be dynamically bound, and not only attributes but also event hooks. This allows transitions to access any data in the context.</p>
 
-    <div>
+    <div id="vue-dynamic-transition">
         <dynamic-transition class="vue-component-root row" />
     </div>
 
