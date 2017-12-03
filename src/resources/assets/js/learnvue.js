@@ -185,6 +185,7 @@ Vue.component('directive-hook-arguments', CustomDirectiveHooks);
 
 
 //vuex
+/*
 const app2 = new Vue({
     el: '#vuex-example',
     store,
@@ -408,7 +409,7 @@ const custom_directive = new Vue({ el: '#vue-custom-directive'});
 
 const directive_hook_arguments = new Vue({ el: '#vue-directive-hook-arguments'});
 
-
+*/
 
 
 //

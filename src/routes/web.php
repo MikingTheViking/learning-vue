@@ -16,7 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('/learnvue', 'LearnVueController@index')->name('learnvue');
-Route::get('/learnvue/{route}', 'LearnVueController@index');
+Route::get('/learnvue/app/{route}', 'LearnVueController@index');
+Route::get('/learnvue/app/api/{route}', 'LearnVueController@api')->name('learnvue-api');
 
 Route::get('/learn-es2015', 'LearnES2015Controller@index')->name('learn-es2015');
 
