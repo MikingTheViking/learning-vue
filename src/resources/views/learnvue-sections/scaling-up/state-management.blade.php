@@ -942,6 +942,8 @@ store.registerModule(['nested', 'myModule'], {
         ├── cart.js       # cart module
         └── products.js   # products module</pre>
 
+  <p><small>A great reference for implementing Vuex is here <a href="https://github.com/vuejs/vuex/tree/dev/examples">Vuex Examples</a>.</small></p>
+
   <div id="vue-list-move-transitions-with-vuex">
     
   </div>
