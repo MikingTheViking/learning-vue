@@ -10,7 +10,7 @@ export default new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    { path: '/foo', component: Foo },
-    { path: '/bar', component: Bar }
+    { path: '/learnvue/foo', component: Foo },
+    { path: '/learnvue/bar', component: Bar }
   ]
 })
