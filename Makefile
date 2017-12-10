@@ -10,6 +10,12 @@ new: ## Create and start containers, install dependencies and build assets.
 watch: ## run yarn watch
 	cd src; yarn watch
 
+dev: ## run yarn dev
+	cd src; yarn dev
+
+prod: ## run yarn prod
+	cd src; yarn prod
+
 composer_install: ## Install composer dependencies.
 	@docker exec ${APP_CONTAINER} bash -c "cd /src && composer install --no-interaction"
 
