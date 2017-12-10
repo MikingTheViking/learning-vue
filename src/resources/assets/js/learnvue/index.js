@@ -1,4 +1,4 @@
-require('./bootstrap');
+require('../bootstrap');
 
 
 //Highlight.js, for automatic code highlighting
@@ -14,7 +14,6 @@ import VueRouter from 'vue-router';
 
 //Vuex Shenanigans
 import 'babel-polyfill';
-import 'babel-polyfill'
 
 
 import { sync } from 'vuex-router-sync';
@@ -23,68 +22,68 @@ import router from './router';
 const unsync = sync(store, router) // done. Returns an unsync callback fn
 
 
-import App from './learnvue-components/Routing/Home.vue';
-import ListTransition from './learnvue-components/Transitions/ListMoveTransitionsWithVuex';
+import App from './components/Routing/Home.vue';
+import ListTransition from './components/Transitions/ListMoveTransitionsWithVuex';
 
 
 Vue.config.debug = true;
 
 
 
-//Vue.component('category', require('./learnvue-components/Category.vue'));
-//Vue.component('basicinstance', require('./learnvue-components/BasicInstance.vue'));
-import BasicInstance from './learnvue-components/BasicInstance.vue';
-import DataBindSample from './learnvue-components/DataBindSample.vue';
-import InstanceMethods from './learnvue-components/InstanceMethods.vue';
+//Vue.component('category', require('./components/Category.vue'));
+//Vue.component('basicinstance', require('./components/BasicInstance.vue'));
+import BasicInstance from './components/BasicInstance.vue';
+import DataBindSample from './components/DataBindSample.vue';
+import InstanceMethods from './components/InstanceMethods.vue';
 Vue.component('basicinstance', BasicInstance);
 Vue.component('databindsample', DataBindSample);
 Vue.component('instancemethods', InstanceMethods);
 
 //interpolations
-import TextInterpolation from './learnvue-components/Interpolations/Text.vue';
-import RawHTML from './learnvue-components/Interpolations/RawHTML.vue';
-import AttributesInterpolation from './learnvue-components/Interpolations/Attributes.vue';
-import JavascriptInterpolation from './learnvue-components/Interpolations/JavaScriptExpressions.vue';
+import TextInterpolation from './components/Interpolations/Text.vue';
+import RawHTML from './components/Interpolations/RawHTML.vue';
+import AttributesInterpolation from './components/Interpolations/Attributes.vue';
+import JavascriptInterpolation from './components/Interpolations/JavaScriptExpressions.vue';
 Vue.component('text-interpolation', TextInterpolation);
 Vue.component('raw-html-interpolation', RawHTML);
 Vue.component('attributes-interpolation', AttributesInterpolation);
 Vue.component('javascript-expressions-interpolation', JavascriptInterpolation);
 
 //directives
-import DirectiveSample from './learnvue-components/Directives/DirectiveSample.vue';
-import ArgumentsDirective from './learnvue-components/Directives/Arguments.vue';
-import ModifiersDirective from './learnvue-components/Directives/Modifiers.vue';
-import ShorthandsDirective from './learnvue-components/Directives/Shorthands.vue';
+import DirectiveSample from './components/Directives/DirectiveSample.vue';
+import ArgumentsDirective from './components/Directives/Arguments.vue';
+import ModifiersDirective from './components/Directives/Modifiers.vue';
+import ShorthandsDirective from './components/Directives/Shorthands.vue';
 Vue.component('directive-sample', DirectiveSample);
 Vue.component('arguments-directive', ArgumentsDirective);
 Vue.component('modifiers-directive', ModifiersDirective);
 Vue.component('shorthand-directive', ShorthandsDirective);
 
 //computed properties and watchers
-import ComputedProperty from './learnvue-components/Computed-Properties/ComputedPropertySample.vue';
-import ComplexWatch from './learnvue-components/Computed-Properties/ComplexWatch.vue';
+import ComputedProperty from './components/Computed-Properties/ComputedPropertySample.vue';
+import ComplexWatch from './components/Computed-Properties/ComplexWatch.vue';
 Vue.component('computed-property-sample', ComputedProperty);
 Vue.component('complex-watch', ComplexWatch);
 
 //class and style bindings
-import ObjectSyntax from './learnvue-components/Class-And-Style-Bindings/ObjectSyntax.vue';
-import ArraySyntax from './learnvue-components/Class-And-Style-Bindings/ArraySyntax.vue';
+import ObjectSyntax from './components/Class-And-Style-Bindings/ObjectSyntax.vue';
+import ArraySyntax from './components/Class-And-Style-Bindings/ArraySyntax.vue';
 Vue.component('object-syntax-sample', ObjectSyntax);
 Vue.component('array-syntax-sample', ArraySyntax);
 
 //conditional rendering
-import ConditionalRendering from './learnvue-components/Conditional-Rendering/ReusableElementSample.vue';
-import ConditionalRenderingKey from './learnvue-components/Conditional-Rendering/ReusableElementsKey.vue';
+import ConditionalRendering from './components/Conditional-Rendering/ReusableElementSample.vue';
+import ConditionalRenderingKey from './components/Conditional-Rendering/ReusableElementsKey.vue';
 Vue.component('conditional-rendering-sample', ConditionalRendering);
 Vue.component('conditional-rendering-key-sample', ConditionalRenderingKey);
 
 //list rendering
-import ForExample from './learnvue-components/List-Rendering/ForBasicExample.vue';
-import ForWithIndex from './learnvue-components/List-Rendering/ForBasicWithIndexExample.vue';
-import ObjectValue from './learnvue-components/List-Rendering/ObjectValueExample.vue';
-import ObjectKeyValue from './learnvue-components/List-Rendering/ObjectKeyValueExample.vue';
-import ObjectIndexKeyValue from './learnvue-components/List-Rendering/ObjectKeyValueIndexExample.vue';
-import ToDoList from './learnvue-components/List-Rendering/SimpleTodoList.vue';
+import ForExample from './components/List-Rendering/ForBasicExample.vue';
+import ForWithIndex from './components/List-Rendering/ForBasicWithIndexExample.vue';
+import ObjectValue from './components/List-Rendering/ObjectValueExample.vue';
+import ObjectKeyValue from './components/List-Rendering/ObjectKeyValueExample.vue';
+import ObjectIndexKeyValue from './components/List-Rendering/ObjectKeyValueIndexExample.vue';
+import ToDoList from './components/List-Rendering/SimpleTodoList.vue';
 Vue.component('for-basic-sample', ForExample);
 Vue.component('for-basic-with-index-sample', ForWithIndex);
 Vue.component('for-object-value-sample', ObjectValue);
@@ -94,23 +93,23 @@ Vue.component('simple-todo-list', ToDoList);
 
 
 //Event Handling
-import SimpleOnEvent from './learnvue-components/Event-Handling/SimpleOnEvent.vue';
-import SimpleOnEventMethod from './learnvue-components/Event-Handling/SimpleOnEventMethod.vue';
-import SimpleInline from './learnvue-components/Event-Handling/SimpleInline.vue';
+import SimpleOnEvent from './components/Event-Handling/SimpleOnEvent.vue';
+import SimpleOnEventMethod from './components/Event-Handling/SimpleOnEventMethod.vue';
+import SimpleInline from './components/Event-Handling/SimpleInline.vue';
 Vue.component('simple-on-event', SimpleOnEvent);
 Vue.component('simple-on-event-method', SimpleOnEventMethod);
 Vue.component('simple-inline', SimpleInline);
 
 //Form Input Binding
-import SimpleTextBinding from './learnvue-components/Form-Input-Bindings/TextModel.vue';
-import SimpleTextAreaBinding from './learnvue-components/Form-Input-Bindings/TextareaModel.vue';
-import SimpleCheckboxSingleBinding from './learnvue-components/Form-Input-Bindings/CheckboxSingle.vue';
-import SimpleCheckboxMultipleBinding from './learnvue-components/Form-Input-Bindings/CheckboxMultiple.vue';
-import RadioBinding from './learnvue-components/Form-Input-Bindings/RadioModel.vue';
-import SelectBinding from './learnvue-components/Form-Input-Bindings/SelectModel.vue';
-import CheckboxBinding from './learnvue-components/Form-Input-Bindings/CheckboxValueBinding.vue';
-import SelectOptionsBinding from './learnvue-components/Form-Input-Bindings/SelectOptionsBinding.vue';
-import LazyModifier from './learnvue-components/Form-Input-Bindings/LazyModifier.vue';
+import SimpleTextBinding from './components/Form-Input-Bindings/TextModel.vue';
+import SimpleTextAreaBinding from './components/Form-Input-Bindings/TextareaModel.vue';
+import SimpleCheckboxSingleBinding from './components/Form-Input-Bindings/CheckboxSingle.vue';
+import SimpleCheckboxMultipleBinding from './components/Form-Input-Bindings/CheckboxMultiple.vue';
+import RadioBinding from './components/Form-Input-Bindings/RadioModel.vue';
+import SelectBinding from './components/Form-Input-Bindings/SelectModel.vue';
+import CheckboxBinding from './components/Form-Input-Bindings/CheckboxValueBinding.vue';
+import SelectOptionsBinding from './components/Form-Input-Bindings/SelectOptionsBinding.vue';
+import LazyModifier from './components/Form-Input-Bindings/LazyModifier.vue';
 Vue.component('simple-text-binding', SimpleTextBinding);
 Vue.component('simple-textarea-binding', SimpleTextAreaBinding);
 Vue.component('simple-checkbox-single-binding', SimpleCheckboxSingleBinding);
@@ -122,11 +121,11 @@ Vue.component('select-options-binding', SelectOptionsBinding);
 Vue.component('lazy-modifier', LazyModifier);
 
 //components
-import PropSimple from './learnvue-components/Components/ComponentProps.vue';
-import DynamicProps from './learnvue-components/Components/DynamicProps.vue';
-import EventHandling from './learnvue-components/Components/EventHandling.vue';
-import CurrencyInput from './learnvue-components/Components/InputModelParent.vue';
-import CurrencyModel from './learnvue-components/Components/CurrencyInputModelParent.vue';
+import PropSimple from './components/Components/ComponentProps.vue';
+import DynamicProps from './components/Components/DynamicProps.vue';
+import EventHandling from './components/Components/EventHandling.vue';
+import CurrencyInput from './components/Components/InputModelParent.vue';
+import CurrencyModel from './components/Components/CurrencyInputModelParent.vue';
 Vue.component('prop-simple', PropSimple);
 Vue.component('dynamic-props', DynamicProps);
 Vue.component('event-handling', EventHandling);
@@ -135,22 +134,22 @@ Vue.component('currency-input-model-parent', CurrencyModel);
 
 
 //transitions
-import BasicOpacity from './learnvue-components/Transitions/BasicOpacity.vue';
-import AdvancedOpacity from './learnvue-components/Transitions/AdvancedOpacity.vue';
-import BasicAnimation from './learnvue-components/Transitions/BasicAnimation.vue';
-import AdvancedAnimation from './learnvue-components/Transitions/AdvancedAnimation.vue';
-import JavascriptHooks from './learnvue-components/Transitions/JavaScriptHooks.vue';
-import JavascriptTransition from './learnvue-components/Transitions/JavaScriptTransition.vue';
-import JavascriptModesNone from './learnvue-components/Transitions/TransitionModesNone.vue';
-import JavascriptModesNoneAgain from './learnvue-components/Transitions/TransitionModesNoneAgain.vue';
-import TransitionModes from './learnvue-components/Transitions/TransitionModes.vue';
-import ComponentTransition from './learnvue-components/Transitions/ComponentTransition.vue';
-import ListTransitions from './learnvue-components/Transitions/ListTransitions.vue';
-import ListMoveTransitions from './learnvue-components/Transitions/ListMoveTransitions.vue';
-import ListMovesAndTransitions from './learnvue-components/Transitions/ListMovesAndTransitions.vue';
-import StaggeredListTransition from './learnvue-components/Transitions/StaggeredListTransitions.vue';
-import ReusedTransitionRoot from './learnvue-components/Transitions/ReusedTransitionRoot.vue';
-import DynamicTransition from './learnvue-components/Transitions/DynamicTransition.vue';
+import BasicOpacity from './components/Transitions/BasicOpacity.vue';
+import AdvancedOpacity from './components/Transitions/AdvancedOpacity.vue';
+import BasicAnimation from './components/Transitions/BasicAnimation.vue';
+import AdvancedAnimation from './components/Transitions/AdvancedAnimation.vue';
+import JavascriptHooks from './components/Transitions/JavaScriptHooks.vue';
+import JavascriptTransition from './components/Transitions/JavaScriptTransition.vue';
+import JavascriptModesNone from './components/Transitions/TransitionModesNone.vue';
+import JavascriptModesNoneAgain from './components/Transitions/TransitionModesNoneAgain.vue';
+import TransitionModes from './components/Transitions/TransitionModes.vue';
+import ComponentTransition from './components/Transitions/ComponentTransition.vue';
+import ListTransitions from './components/Transitions/ListTransitions.vue';
+import ListMoveTransitions from './components/Transitions/ListMoveTransitions.vue';
+import ListMovesAndTransitions from './components/Transitions/ListMovesAndTransitions.vue';
+import StaggeredListTransition from './components/Transitions/StaggeredListTransitions.vue';
+import ReusedTransitionRoot from './components/Transitions/ReusedTransitionRoot.vue';
+import DynamicTransition from './components/Transitions/DynamicTransition.vue';
 Vue.component('basic-opacity', BasicOpacity);
 Vue.component('advanced-opacity', AdvancedOpacity);
 Vue.component('basic-animation', BasicAnimation);
@@ -168,18 +167,18 @@ Vue.component('staggered-list-transition', StaggeredListTransition);
 Vue.component('reused-transition', ReusedTransitionRoot);
 Vue.component('dynamic-transition', DynamicTransition);
 
-import ReusableTransitionTemplate from './learnvue-components/Transitions/ReusableTransitionUsingTemplateComponent.vue';
+import ReusableTransitionTemplate from './components/Transitions/ReusableTransitionUsingTemplateComponent.vue';
 Vue.component('reusable-transition-template-component', ReusableTransitionTemplate);
 
 
 
 //state transitions
-import AnimatedStateWithWatcher from './learnvue-components/State-Transitions/AnimatedStateWithWatcher.vue';
+import AnimatedStateWithWatcher from './components/State-Transitions/AnimatedStateWithWatcher.vue';
 Vue.component('animated-state-with-watcher', AnimatedStateWithWatcher);
 
 //reusability & composition
-import AutofocusInput from './learnvue-components/Custom-Directives/AutofocusInput.vue';
-import CustomDirectiveHooks from './learnvue-components/Custom-Directives/CustomDirectiveHookArguments.vue';
+import AutofocusInput from './components/Custom-Directives/AutofocusInput.vue';
+import CustomDirectiveHooks from './components/Custom-Directives/CustomDirectiveHookArguments.vue';
 Vue.component('custom-directive', AutofocusInput);
 Vue.component('directive-hook-arguments', CustomDirectiveHooks);
 
@@ -416,7 +415,7 @@ const directive_hook_arguments = new Vue({ el: '#vue-directive-hook-arguments'})
 // VUE ROUTER
 //
 
-import AppRouter from './learnvue-components/App.vue';
+import AppRouter from './components/App.vue';
 
 
 

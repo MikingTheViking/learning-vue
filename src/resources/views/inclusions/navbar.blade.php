@@ -51,7 +51,9 @@
                     <a class="dropdown-item" href="{{ route('learn-es2015') }}">
                         Learn ES2015
                     </a>
-
+                    <a class="dropdown-item" href="{{ route('fontawesome-5') }}">
+                        Fontawesome 5
+                    </a>
                 </div>
             </li>
 

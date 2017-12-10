@@ -1,39 +1,16 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
 //@import "~font-awesome/scss/font-awesome.scss";
 @import "~@fortawesome/fontawesome/styles.css";
-
-
 //Animate.css
 @import "~animate.css/animate.css";
-
 // Variables
 @import "variables";
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
-
 //highlight.js, import the specified color theme
 @import "~highlight.js/styles/agate.css";
-
 //Navbar fix, add padding to the body to prevent overlap
 body {
     padding-top: 70px;
-}
-
-
-$vue-component-border-color: rgba(64, 79, 249, 0.72941);
-$vue-component-background-color: rgba(0, 126, 255, 0.10196078431372549);
-.vertical-middle-container {
-    display: flex;
-    align-items: center;
-    align: center;
-}
-
-.vue-component-root {
-    border: 2px solid $vue-component-border-color;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 10px;
-    background:$vue-component-background-color;
 }

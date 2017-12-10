@@ -10,10 +10,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Learning Vue') }}</title>
+    <title>{{ config('app.name', 'Fontawesome 5 Demo') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fontawesome-5.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -21,7 +21,7 @@
     @include('inclusions.navbar')
     <div class="container-fluid" id="router-app"></div>
     <!-- Scripts -->
-    <script src="{{ asset('js/learnvue.js') }}"></script>
+    <script src="{{ asset('js/fontawesome-5-demo.js') }}"></script>
 
     @include('inclusions.browsersync')
 </body>

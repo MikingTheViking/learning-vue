@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import DynamicCategory from '../learnvue-components/DynamicCategory';
+//import DynamicCategory from '../learnvue-components/DynamicCategory';
 
 Vue.use(VueRouter);
 
@@ -14,6 +14,6 @@ export default new VueRouter({
   routes: [
     { path: '/learnvue/app/foo', component: Foo },
     { path: '/learnvue/app/bar', component: Bar },
-    { path: '/learnvue/app/:route', component: DynamicCategory}
+    //{ path: '/learnvue/app/:route', component: DynamicCategory}
   ]
 })
