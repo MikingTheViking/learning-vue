@@ -12,7 +12,13 @@
                         <font-awesome-icon icon="spinner" />
                         <!-- Using another style needs a prefix in the following array format -->
                         <font-awesome-icon :icon="['fab', 'font-awesome']" />
+                        <font-awesome-icon icon="spinner" spin />
+                        <font-awesome-icon icon="spinner" pulse />
+                        <font-awesome-icon icon="spinner" transform="shrink-6 left-4" />
+                        <font-awesome-icon icon="spinner" :transform="{ rotate: 42 }" />
 
+
+                        
                     <p>Icon : "<font-awesome-icon :icon="icon" />" Root router path: {{ $route.fullPath }}</p>
                     <ul class="nav flex-column">
                         <li class="nav-item"><router-link class="nav-link" to="/learnvue/app/home"><button class="btn btn-outline-primary">/home</button></router-link></li>

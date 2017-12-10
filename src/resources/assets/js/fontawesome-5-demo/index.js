@@ -28,6 +28,14 @@ Vue.config.debug = true;
 
 import AppRouter from './components/App.vue';
 
+//Add fontawesome components globally (instead of explicitly selected).... this is for ease in first iteration
+//TODO: switch to importing as required
+import fontawesome from '@fortawesome/fontawesome'
+import brands from '@fortawesome/fontawesome-free-brands'
+import { faSpinner } from '@fortawesome/fontawesome-free-solid'
+
+fontawesome.library.add(brands, faSpinner)
+
 // 1. Use plugin.
 // This installs <router-view> and <router-link>,
 // and injects $router and $route to all router-enabled child components
