@@ -31,12 +31,26 @@ shell: ## access workspace shell
 	cd laradock && docker-compose exec workspace bash
 
 
+first_time_install: ## run first time installation
+	@make copy_env
+	@make generate_key
+	#@make storage_link
+	@make composer_install
+	@make yarn_install
+	@make rollback
+	@make seed
+
+copy_env: ## copy the laravel_project/.env.example to laravel_project/.env
+	cd laravel_project && cp .env.example .env
+
 generate_key: ## generate laravel application key
 	cd laradock && docker-compose exec workspace php artisan key:generate
-	
+
 storage_link: ## creates symbolic link from storage to public directory
 	cd laradock && docker-compose exec workspace php artisan storage:link
 
+yarn_install: ## run yarn install for dev dependencies
+	cd laravel_project && yarn
 
 composer_install: ## install composer dependencies
 	cd laradock && docker-compose exec workspace composer install
@@ -59,7 +73,7 @@ test: ## run phpunit
 	cd laradock && docker-compose exec workspace vendor/bin/phpunit
 
 tail: ## get the logs as they come
-	tail -F project/storage/logs/*
+	tail -F laravel_project/storage/logs/*
 
 watch: ## watch the project files cd laravel && yarn watch
-	cd project && yarn watch
+	cd laravel_project && yarn watch

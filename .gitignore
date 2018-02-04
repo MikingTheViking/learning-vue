@@ -17,3 +17,10 @@ laravel_project/composer\.lock
 laravel_project/package-lock\.json
 
 laravel_project/yarn\.lock
+
+laravel_project/storage/logs/*
+laravel_project/storage/framework/cache/*
+laravel_project/storage/framework/sessions/*
+laravel_project/storage/framework/testing/*
+laravel_project/storage/framework/views/*
+laravel_project/storage/app/*
