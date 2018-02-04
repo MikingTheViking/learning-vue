@@ -3,22 +3,17 @@ Thumbs.db
 /.vagrant/*
 ./src/yarn.lock
 
-src/public/js/app.js
-src/public/js/learnvue.js
-src/public/js/login.js
+/public/css/*
 
-src/node_modules/
+laravel_project/node_modules/
+laravel_project/vendor/
+laravel_project/public/css/
+laravel_project/public/fonts/
+laravel_project/public/images/
+laravel_project/\.env
 
-src/vendor/
+laravel_project/composer\.lock
 
-src/public/mix-manifest\.json
+laravel_project/package-lock\.json
 
-src/public/css/
-
-node_modules/
-
-src/package-lock\.json
-
-src/public/js/welcome\.js
-
-src/yarn\.lock
+laravel_project/yarn\.lock

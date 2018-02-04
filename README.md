@@ -53,7 +53,16 @@ The postgres folde contains the Dockerfile to configure the postgres docker cont
 
 ##Setting Up the Project
 
-Clone the project from the repo.
+1. Clone the project from the repo.
+2. Clone Laradock (if not included in repo, WIP)
+3. Run `make up` to build and start up the containers for the project
+3. Run `make composer_install` to install dependencies in `laravel_project/`
+4. Run `make generate_key` to generate the application key inside the container
+5. Run `make migrate` to migrate/rollback the database
+6. Run `make seed` to seed the database with default data
+7. Run `make stop` to shut down the containers
+8. *Run `make clean` to stop and remove the containers from docker-compose
+
 
 ### Initial Building and Installations
 
