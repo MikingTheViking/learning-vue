@@ -3,7 +3,7 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
+console.log('starting app.js');
 require('./bootstrap');
 
 /*
@@ -27,23 +27,14 @@ const app = new Vue({
 */
 import Vue from 'vue';
 
+//fontawesome 5
+import fontawesome from '@fortawesome/fontawesome';
+import brands from '@fortawesome/fontawesome-free-brands';
+import freebase from '@fortawesome/fontawesome-free-solid';
 
-import Login from './components/Login.vue';
-/*
-import Notification from './components/Notification.vue';
+fontawesome.library.add(brands, freebase);
 
-var notifications = new Vue({
-
-    el: '#app',
-
-
-    components: {
-        Notification
-    }
-
-});
-*/
-
+//Other Components
 var login = new Vue({
 
     el: '#login-app',

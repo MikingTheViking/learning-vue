@@ -9,7 +9,6 @@ laravel_project/node_modules/
 laravel_project/vendor/
 laravel_project/public/css/
 laravel_project/public/fonts/
-laravel_project/public/images/
 laravel_project/\.env
 
 laravel_project/composer\.lock
@@ -24,3 +23,6 @@ laravel_project/storage/framework/sessions/*
 laravel_project/storage/framework/testing/*
 laravel_project/storage/framework/views/*
 laravel_project/storage/app/*
+laravel_project/public/js/
+
+laravel_project/public/mix-manifest\.json

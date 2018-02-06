@@ -33,9 +33,9 @@ shell: ## access workspace shell
 
 first_time_install: ## run first time installation
 	@make copy_env
+	@make composer_install
 	@make generate_key
 	#@make storage_link
-	@make composer_install
 	@make yarn_install
 	@make rollback
 	@make seed

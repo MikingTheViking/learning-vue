@@ -23,6 +23,10 @@
 
             <h1>Vue.js <small class="text-muted">A learning exercise with the Viking</small></h1>
 
+            <div id="logo-cube">
+                <logo-cube />
+            </div>
+
             <h2>The Essentials</h2>
 
             @include('learnvue-sections.essentials.what-is-it')

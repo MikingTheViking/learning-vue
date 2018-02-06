@@ -34,6 +34,8 @@ Vue.config.debug = true;
 
 //Vue.use(VueRouter);
 
+Vue.component('logo-cube', require('./components/canvas_creation/LogoCube.vue'));
+
 //Vue.component('category', require('./learnvue-components/Category.vue'));
 Vue.component('basicinstance', require('./learnvue-components/BasicInstance.vue'));
 Vue.component('databindsample', require('./learnvue-components/DataBindSample.vue'));
@@ -144,6 +146,10 @@ const app = new Vue({
     el: '#app'
 });
 */
+
+const logoCube = new Vue({
+    el: '#logo-cube'
+});
 
 const app2 = new Vue({
     el: '#vuex-example',

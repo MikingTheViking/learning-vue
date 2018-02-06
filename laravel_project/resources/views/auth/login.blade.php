@@ -65,5 +65,12 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col" id="login-app">
+            <login />
+            <font-awesome-icon :icon="['fas', 'user']" />
+        </div>
+    </div>
 </div>
+<script src="{{ asset('js/login.js') }}"></script>
 @endsection

@@ -14,11 +14,11 @@ let mix = require('laravel-mix');
 mix
 	.js('resources/assets/js/welcome.js', 'public/js')
 	.sass('resources/assets/sass/welcome.scss', 'public/css')
-	.js('resources/assets/js/app.js', 'public/js')
 	.js('resources/assets/js/learnvue.js', 'public/js')
-	.js('resources/assets/js/learn-es2015.js', 'public/js')
+	// .js('resources/assets/js/learn-es2015.js', 'public/js')
+	.js('resources/assets/js/app.js', 'public/js')
    	.sass('resources/assets/sass/app.scss', 'public/css');
-
+;
 
 mix.autoload({
 	jquery: ['$', 'global.jQuery', 'jQuery', 'global.$', 'jquery', 'global.jquery']
@@ -33,6 +33,7 @@ mix.webpackConfig({
 			'app/**/*',
 			'public/**/*',
 			'resources/views/**/*',
+			'resources/assets/**/*',
 			'routes/**/*'
 		]
 	})]
