@@ -75,5 +75,12 @@ test: ## run phpunit
 tail: ## get the logs as they come
 	tail -F laravel_project/storage/logs/*
 
+dev: ## run a dev build
+	cd laravel_project && yarn dev
+
+prod: ## run a prod build
+	cd laravel_project && yarn prod
+
 watch: ## watch the project files cd laravel && yarn watch
 	cd laravel_project && yarn watch
+
