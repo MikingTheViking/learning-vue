@@ -23,16 +23,6 @@ import store from './components/app_router/store';
 
 import AppRouter from './components/app_router/AppRouter.vue';
 
-/*
-const app2 = new Vue({
-    el: '#vuex-example',
-    store,
-    render: h => h(App)
-});
-
-*/
-
-
 const app = new Vue({
     el: '#vue-router',
     store,
