@@ -17,8 +17,6 @@
 
 </head>
 <body>
-<<<<<<< HEAD:src/resources/views/learnvue.blade.php
-=======
     @include('inclusions.navbar')
     <div id="app">
         
@@ -63,7 +61,6 @@
         
         
     </div>
->>>>>>> develop:laravel_project/resources/views/learnvue.blade.php
 
     @include('inclusions.navbar')
     <div class="container-fluid" id="router-app"></div>
