@@ -6,10 +6,24 @@
 
 <script>
 
+import { mapGetters, mapActions } from 'vuex'
+
+
 export default {
 
-
-
+    computed: {
+        ...mapGetters({
+            currentTestState: 'currentTestState'
+        })
+    },
+    methods: {
+        ...mapActions([
+            'toggleTestState'
+        ]),
+    },
+    created () {
+        //this.$store.dispatch('currentTestState')        
+    }
 
 }
 
