@@ -53,21 +53,10 @@ The postgres folde contains the Dockerfile to configure the postgres docker cont
 
 ##Setting Up the Project
 
-Clone the project from the repo.
-
-### Initial Building and Installations
-
-If you are freshly cloning this repo locally you'll need to complete several steps to get it up and running.
-
-1. In the project root (`Makefile` location)
-  * run `make build` to create the containers (postgres and ubuntu)
-  * run `make up` to start up the containers
-  * run `make storage_link` to create a link from the storage to the public directory
-  * ....run `make halt` to stop the containers
-2. In `src/`
-  * run `yarn` to install all node dependencies
-
-### For Development
-
-* run `yarn dev` to transpile a development build of the source code
-* run `yarn watch` to transpile a development build of the source code, and watch the files for changes with live reload
+1. Clone the project from the repo.
+2. Clone Laradock (if not included in repo, WIP)
+3. Run `make up` to build and start up the containers for the project
+4. Run `first_time_install` to run all necessary first time commands (copy .env.example, generate app key, composer install, dtabase migration and default seeding)
+5. Run `make watch` to watch and compile all assets
+7. Run `make stop` to shut down the containers
+8. *Run `make clean` to stop and remove the containers from docker-compose
