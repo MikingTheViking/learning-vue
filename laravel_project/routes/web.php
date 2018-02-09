@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return view('app');
 });
 
 Route::get('/learnvue', 'LearnVueController@index')->name('learnvue');

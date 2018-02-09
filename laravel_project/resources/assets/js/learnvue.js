@@ -23,7 +23,6 @@ import Vue from 'vue';
 
 //Vuex Shenanigans
 import 'babel-polyfill';
-import 'babel-polyfill'
 //import { getAllMessages } from './store/actions'
 import store from './store';
 import App from './learnvue-components/Routing/Home.vue';
