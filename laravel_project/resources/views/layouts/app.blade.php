@@ -5,15 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    @include('inclusions.favicons')
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+    @include('inclusions.favicons')
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Viking Web Dev') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
 </head>
 <body>
     <div id="app">

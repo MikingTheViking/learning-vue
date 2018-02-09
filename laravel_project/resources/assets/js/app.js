@@ -24,18 +24,7 @@ import store from './components/app_router/store';
 import AppRouter from './components/app_router/AppRouter.vue';
 
 const app = new Vue({
-    el: '#vue-router',
+    el: '#router-app',
     store,
     render: h => h(AppRouter)
-});
-
-
-//Other Components
-var login = new Vue({
-
-    el: '#login-app',
-    components: {
-        Login
-    }
-
 });
