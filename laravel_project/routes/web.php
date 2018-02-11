@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-    return view('app');
-});
+Route::view('/', 'app');
+Route::view('/user/{id?}', 'app');
+
 
 Route::get('/learnvue', 'LearnVueController@index')->name('learnvue');
 Route::get('/learnvue/app/{route}', 'LearnVueController@index');

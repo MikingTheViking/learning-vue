@@ -25,7 +25,7 @@ import Vue from 'vue';
 import 'babel-polyfill';
 //import { getAllMessages } from './store/actions'
 import store from './store';
-import App from './learnvue-components/Routing/Home.vue';
+//import App from './learnvue-components/Routing/Home.vue';
 import ListTransition from './learnvue-components/Transitions/ListMoveTransitionsWithVuex';
 
 Vue.config.debug = true;
